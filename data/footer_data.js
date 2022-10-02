@@ -1,97 +1,67 @@
 const footerMenuList = [
   {
     id: 1,
-    title: "Marketplace",
+    title: "Features",
     diffClass: "md:col-start-7",
     list: [
       {
         id: 1,
         href: "#",
-        text: "All NFTs",
+        text: "Mint NFT",
       },
       {
         id: 2,
         href: "#",
-        text: "art",
+        text: "Upload NFT",
       },
       {
         id: 3,
         href: "#",
-        text: "music",
+        text: "Trade NFT",
       },
       {
         id: 4,
         href: "#",
-        text: "domain names",
+        text: "Farm and Stake",
       },
       {
         id: 5,
         href: "#",
-        text: "collections",
-      },
-      {
-        id: 6,
-        href: "#",
-        text: "virtual world",
+        text: "DEX",
       },
     ],
   },
   {
     id: 2,
-    title: "Company",
+    title: "Help",
     diffClass: "",
     list: [
       {
         id: 1,
         href: "#",
-        text: "Explore",
+        text: "Explorer",
       },
       {
         id: 2,
         href: "#",
-        text: "About",
+        text: "Configure ETHPow Network",
       },
       {
         id: 3,
         href: "#",
         text: "Contact Us",
       },
-      {
-        id: 4,
-        href: "#",
-        text: "Our Blog",
-      },
-      {
-        id: 5,
-        href: "#",
-        text: "FAQ",
-      },
     ],
   },
   {
     id: 3,
-    title: "My Account",
+    title: "Documentations",
     diffClass: "",
     list: [
       {
         id: 1,
         href: "#",
-        text: "Authors",
-      },
-      {
-        id: 2,
-        href: "#",
-        text: "Collection",
-      },
-      {
-        id: 3,
-        href: "#",
-        text: "Author Profile",
-      },
-      {
-        id: 4,
-        href: "#",
-        text: "Create Item",
+        text: "Docs",
       },
     ],
   },

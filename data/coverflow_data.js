@@ -108,26 +108,26 @@ export const coverflow_data = [
 
 export const hero_5_data = [
   {
-    img: "/images/products/item_16_2lg.jpg",
-    title: "Etherium NFT Launching Lab",
+    img: "/images/products/poo-doge.png",
+    title: "Poo Doge - No: 007",
     authorImage: "/images/avatars/avatar_18_rounded.gif",
-    authorName: "051_Hart",
+    authorName: "Minted by 051_Hart",
     id: "0Etherium NFT Launching Lab",
   },
   {
-    img: "/images/products/item_12_2lg.jpg",
-    title: "Oceania \\\\ OVERSEER 017",
+    img: "/images/products/poo-inu.png",
+    title: "Rare Poo - No: 345",
     authorImage: "/images/avatars/avatar_22_rounded.jpg",
-    authorName: "MadeByM1KE",
+    authorName: "Minted by MadeByM1KE",
     id: "1Oceania \\\\ OVERSEER 017",
 
     subItem: [
       {
-        img: "/images/products/item_13_lg.jpg",
-        title: "Light Bars",
+        img: "/images/products/poo-floki.png",
+        title: "Poo Floki - No: 1441",
         authorImage: "/images/avatars/avatar_17_rounded.jpg",
-        authorName: "Wow Frens",
-        id: "2Light Bars",
+        authorName: "Minted by Wow Frens",
+        id: "Minted by 2Light Bars",
       },
     ],
   },

@@ -32,8 +32,8 @@ const footer = () => {
                 </a>
               </Link>
               <p className="dark:text-jacarta-300 mb-12">
-                Create, sell and collect truly rare digital artworks. Powered by
-                blockchain technology.
+                Mint, Trade And Farm Your Digital Assets. <br />
+                Powered By Poo Team.
               </p>
 
               {/* <!-- Socials --> */}

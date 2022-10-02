@@ -70,14 +70,6 @@ const Team = () => {
                 </div>
               );
             })}
-
-            <Link href="#">
-              <a className="dark:bg-jacarta-700 rounded-2lg dark:border-jacarta-600 border-jacarta-100 flex items-center justify-center border bg-white p-8 text-center transition-shadow hover:shadow-lg">
-                <span className="font-display text-jacarta-700 text-md dark:text-white">
-                  Join us!
-                </span>
-              </a>
-            </Link>
           </div>
         </div>
       </section>
