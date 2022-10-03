@@ -5,6 +5,8 @@ import {
   HeadLine,
   Partners,
   Bids,
+  NewseLatter,
+  RoadMap,
 } from "../../components/component";
 import Meta from "../../components/Meta";
 import Hero_5 from "../../components/hero/hero_5";
@@ -22,6 +24,8 @@ const Home_5 = () => {
       <Hero_5 />
       <Bids />
       <Process />
+      <NewseLatter />
+      <RoadMap />
       <Story compFor="about" />
       <Team />
       <Partners />

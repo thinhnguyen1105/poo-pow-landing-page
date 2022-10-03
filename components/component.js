@@ -10,6 +10,7 @@ import Partners from './partners/Partners.jsx';
 import Browse_category from './categories/Browse_category.jsx';
 import Hero_3 from './hero/hero_3.jsx';
 import ItemsTabs from './tabs/Tabs.jsx';
+import RoadMap from './roadmap/index.jsx';
 
 export {
 	Hero,
@@ -24,4 +25,5 @@ export {
 	Browse_category,
 	Hero_3,
 	ItemsTabs,
+	RoadMap
 };

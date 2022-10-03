@@ -19,7 +19,7 @@ const NewseLatter = ({ bgWhite = true }) => {
 
       <div className="container">
         <HeadLine
-          text="Create and sell your NFTs"
+          text="Features"
           classes="font-display text-jacarta-700 mb-16 text-center text-3xl dark:text-white"
         />
 
@@ -50,7 +50,7 @@ const NewseLatter = ({ bgWhite = true }) => {
           })}
         </div>
 
-        <p className="text-jacarta-700 mx-auto mt-20 max-w-2xl text-center text-lg dark:text-white">
+        {/* <p className="text-jacarta-700 mx-auto mt-20 max-w-2xl text-center text-lg dark:text-white">
           Join our mailing list to stay in the loop with our newest feature
           releases, NFT drops, and tips and tricks for navigating PooPow
         </p>
@@ -66,7 +66,7 @@ const NewseLatter = ({ bgWhite = true }) => {
               Subscribe
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
     </section>
   );

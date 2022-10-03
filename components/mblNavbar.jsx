@@ -519,7 +519,7 @@ const MblNavbar = ({ theme }) => {
               })}
             </ul> */}
           </li>
-          <li className="group">
+          {/* <li className="group">
             <Link href="/">
               <a
                 onClick={() => {
@@ -540,7 +540,7 @@ const MblNavbar = ({ theme }) => {
                 </button>
               </a>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
 
