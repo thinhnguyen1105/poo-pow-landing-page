@@ -59,7 +59,7 @@ const BidsCarousel = () => {
                 <div className="dark:bg-jacarta-700 dark:border-jacarta-700 border-jacarta-100 rounded-2xl block border bg-white p-[1.1875rem] transition-shadow hover:shadow-lg text-jacarta-500">
                   <figure>
                     {/* {`item/${itemLink}`} */}
-                    <Link href={"/item/" + itemLink}>
+                    <Link href={"/"}>
                       <a>
                         <div className="w-full">
                           <Image

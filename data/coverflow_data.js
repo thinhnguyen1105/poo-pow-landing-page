@@ -110,14 +110,14 @@ export const hero_5_data = [
   {
     img: "/images/products/poo-doge.png",
     title: "Poo Doge - No: 007",
-    authorImage: "/images/avatars/avatar_18_rounded.gif",
+    authorImage: "/images/avatars/collection_ava_5.png",
     authorName: "Minted by 051_Hart",
     id: "0Etherium NFT Launching Lab",
   },
   {
     img: "/images/products/poo-inu.png",
     title: "Rare Poo - No: 345",
-    authorImage: "/images/avatars/avatar_22_rounded.jpg",
+    authorImage: "/images/avatars/creator_2.jpg",
     authorName: "Minted by MadeByM1KE",
     id: "1Oceania \\\\ OVERSEER 017",
 
@@ -125,7 +125,7 @@ export const hero_5_data = [
       {
         img: "/images/products/poo-floki.png",
         title: "Poo Floki - No: 1441",
-        authorImage: "/images/avatars/avatar_17_rounded.jpg",
+        authorImage: "/images/avatars/creator_4.jpg",
         authorName: "Minted by Wow Frens",
         id: "Minted by 2Light Bars",
       },

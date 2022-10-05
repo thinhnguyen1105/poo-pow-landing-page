@@ -4,7 +4,7 @@ import { roadmapData } from "../../data/roadmapData";
 
 const RoadMap = () => {
   return (
-    <div>
+    <div id="roadmap">
       <section className="py-24">
         <div className="container">
           <HeadLine
@@ -13,7 +13,7 @@ const RoadMap = () => {
           />
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
             {roadmapData.map((item) => {
-              const { id, icon, title, text } = item;
+              const { id, title, actions } = item;
               return (
                 <div className="text-center newseLatter-item" key={id}>
                   {/* <div
@@ -29,10 +29,14 @@ const RoadMap = () => {
                       </svg>
                     </div>
                   </div> */}
-                  <h3 className="font-display text-jacarta-700 mb-4 text-lg dark:text-white">
+                  <h3 className="font-display text-left text-jacarta-700 mb-4 text-lg dark:text-white">
                     {title}
                   </h3>
-                  <p className="dark:text-jacarta-300">{text}</p>
+                  {actions.map((action, index) => (
+                    <div className="text-left" key={index}>
+                      {index + 1}. {action}
+                    </div>
+                  ))}
                 </div>
               );
             })}

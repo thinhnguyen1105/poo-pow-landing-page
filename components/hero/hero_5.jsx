@@ -98,7 +98,7 @@ const Hero_5 = () => {
                       <article>
                         <div className="block overflow-hidden rounded-2.5xl bg-white shadow-md transition-shadow hover:shadow-lg dark:bg-jacarta-700">
                           <figure className="relative">
-                            <Link href={`/item/${itemLink}`}>
+                            <Link href={`/`}>
                               <a>
                                 <img
                                   src={img}

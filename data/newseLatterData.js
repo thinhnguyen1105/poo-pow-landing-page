@@ -4,26 +4,26 @@ const newseLatterData = [
 		icon: { parentBg: '#beaaf7', childBg: 'rgb(131 88 255) ', svg: 'icon-wallet' },
 
 		title: ['Mint NFT'],
-		text: "Once you've set up your wallet of choice, connect it to OpenSeaby clicking the NFT Marketplacein the topright corner.",
+		text: "In the Poo Minting Event, our supporters can mint NFT. Each NFT you produce will have a particular rarity.",
 	},
 	{
 		id: '2',
 		icon: { parentBg: '#c4f2e3', childBg: 'rgb(16 185 129)', svg: 'icon-wallet' },
 
 		title: ['Trade NFT'],
-		text: 'Click Create and set up your collection. Add social links, a description, profile & banner images, andset a secondary sales fee.',
+		text: '“Poo” can be traded on our platform with the price determined by the law of supply and demand.',
 	},
 	{
 		id: '3',
 		icon: { parentBg: '#cddffb', childBg: 'rgb(66 138 248)', svg: 'icon-gallery' },
-		title: ['DEX'],
-		text: 'Upload your work (image, video, audio, or 3D art), add a title and description, and customize your NFTswith properties, stats.',
+		title: ['Farm & Stake'],
+		text: 'Further utility of NFTs? Besides trading on the NFT exchange, they can also be used for farming and staking to earn BabyPoocoin.',
 	},
 	{
 		id: '4',
 		icon: { parentBg: '#ffd0d0', childBg: 'rgb(239 68 68)', svg: 'icon-list' },
-		title: ['Farm & Stake'],
-		text: 'Choose between auctions, fixed-price listings, and declining-price listings. You choose how you want tosell your NFTs!',
+		title: ['DEX'],
+		text: 'In addition to NFT, our application will have a decentralized exchange with ETHPow as its initial integrated network.',
 	},
 ];
 

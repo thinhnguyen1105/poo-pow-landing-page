@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const NewseLatter = ({ bgWhite = true }) => {
   return (
-    <section className="dark:bg-jacarta-800 relative py-24">
+    <section id="features" className="dark:bg-jacarta-800 relative py-24">
       {bgWhite && (
         <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">
           <Image

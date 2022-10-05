@@ -5,12 +5,12 @@ import HeadLine from "../headLine";
 
 const Team = () => {
   return (
-    <div>
+    <div id="team">
       {/* <!-- Team --> */}
       <section className="py-24">
         <div className="container">
           <HeadLine
-            text="Meet Our Amazing Team"
+            text="We Are Anonymous Team"
             classes="font-display text-jacarta-700 mb-12 text-center text-3xl dark:text-white"
           />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-[1.875rem] lg:grid-cols-5">

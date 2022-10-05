@@ -147,7 +147,7 @@ const User = () => {
                 </div>
               </section>
               {/* <!-- end profile --> */}
-              <User_items />
+              {/* <User_items /> */}
             </div>
           );
         })}
