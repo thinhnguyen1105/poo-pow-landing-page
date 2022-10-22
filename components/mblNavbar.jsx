@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import UserId from "./userId";
 import { Metamask_comp_text, Metamask_comp_icon } from "./metamask/Metamask";
+import WalletConnect from "./wallet/Martian";
 
 const MblNavbar = ({ theme }) => {
   const { mblMenu } = useSelector((state) => state.counter);
@@ -637,7 +638,8 @@ const MblNavbar = ({ theme }) => {
       <div className="ml-8 hidden lg:flex xl:ml-12">
         {/* <!-- Wallet --> */}
 
-        <Metamask_comp_icon prop={router} />
+        {/* <Metamask_comp_icon prop={router} /> */}
+        <WalletConnect />
 
         {/* <!-- Profile --> */}
         <div className="js-nav-dropdown group-dropdown relative">
