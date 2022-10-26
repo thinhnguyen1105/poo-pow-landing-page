@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import UserContext from "../components/UserContext";
-import Home_5 from "./home/home_5";
+import Home_1 from "./home/home_1";
 
 export default function Home() {
   const { scrollRef } = useContext(UserContext);
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <div>
-      <Home_5 />
+      <Home_1 />
     </div>
   );
 }
