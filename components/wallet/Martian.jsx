@@ -50,9 +50,7 @@ const WalletMartian = () => {
       )}...`}</div>
     )
   ) : (
-    <div className="font-display flex flex-col justify-center mr-4 cursor-pointer">
-      Not found
-    </div>
+    <div className="font-display flex flex-col justify-center mr-4 cursor-pointer"></div>
   );
 };
 

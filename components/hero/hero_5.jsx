@@ -51,12 +51,12 @@ const Hero_5 = () => {
                 PooAptos – Trade, Farm And Stake Your “Poo” NFT Assests
               </h1>
               <p className="mb-8 text-center text-lg dark:text-jacarta-200 md:text-left">
-                PooAptos is one of the biggest platform on ETHPow Network
+                PooAptos is one of the biggest platform on Aptos Network
                 including NFT Marketplace, Farming and Staking, Decentralized
                 Exchange,..
               </p>
               <div className="flex space-x-4">
-                <Link href="https://www.oklink.com/en/Aptos/">
+                <Link href="https://explorer.aptoslabs.com/">
                   <a className="w-36 rounded-full bg-accent py-3 px-8 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
                     Explorer
                   </a>
@@ -98,42 +98,34 @@ const Hero_5 = () => {
                       <article>
                         <div className="block overflow-hidden rounded-2.5xl bg-white shadow-md transition-shadow hover:shadow-lg dark:bg-jacarta-700">
                           <figure className="relative">
-                            <Link href={`/`}>
-                              <a>
-                                <img
-                                  src={img}
-                                  alt="item 1"
-                                  className="w-full object-cover"
-                                  height="437"
-                                  width="406"
-                                />
-                              </a>
-                            </Link>
+                            <a>
+                              <img
+                                src={img}
+                                alt="item 1"
+                                className="w-full object-cover"
+                                height="437"
+                                width="406"
+                              />
+                            </a>
                           </figure>
                           <div className="p-6">
                             <div className="flex">
-                              <Link href="/user/avatar_6">
-                                <a className="shrink-0">
-                                  <img
-                                    src={authorImage}
-                                    alt="avatar"
-                                    className="mr-4 h-10 w-10 rounded-full"
-                                  />
-                                </a>
-                              </Link>
+                              <a className="shrink-0">
+                                <img
+                                  src={authorImage}
+                                  alt="avatar"
+                                  className="mr-4 h-10 w-10 rounded-full"
+                                />
+                              </a>
                               <div>
-                                <Link href={`/item/${itemLink}`}>
-                                  <a className="block">
-                                    <span className="font-display text-lg leading-none text-jacarta-700 hover:text-accent dark:text-white">
-                                      {title}
-                                    </span>
-                                  </a>
-                                </Link>
-                                <Link href="/user/avatar_6">
-                                  <a className="text-2xs text-accent">
-                                    {authorName}
-                                  </a>
-                                </Link>
+                                <a className="block">
+                                  <span className="font-display text-lg leading-none text-jacarta-700 hover:text-accent dark:text-white">
+                                    {title}
+                                  </span>
+                                </a>
+                                <a className="text-2xs text-accent">
+                                  {authorName}
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -155,42 +147,34 @@ const Hero_5 = () => {
                                 <article>
                                   <div className="block overflow-hidden rounded-2.5xl bg-white shadow-md transition-shadow hover:shadow-lg dark:bg-jacarta-700">
                                     <figure className="relative">
-                                      <Link href={`/item/${itemLink}`}>
-                                        <a>
-                                          <img
-                                            src={img}
-                                            alt="item 1"
-                                            className="w-full object-cover"
-                                            height="437"
-                                            width="406"
-                                          />
-                                        </a>
-                                      </Link>
+                                      <a>
+                                        <img
+                                          src={img}
+                                          alt="item 1"
+                                          className="w-full object-cover"
+                                          height="437"
+                                          width="406"
+                                        />
+                                      </a>
                                     </figure>
                                     <div className="p-6">
                                       <div className="flex">
-                                        <Link href="/user/avatar_6">
-                                          <a className="shrink-0">
-                                            <img
-                                              src={authorImage}
-                                              alt="avatar"
-                                              className="mr-4 h-10 w-10 rounded-full"
-                                            />
-                                          </a>
-                                        </Link>
+                                        <a className="shrink-0">
+                                          <img
+                                            src={authorImage}
+                                            alt="avatar"
+                                            className="mr-4 h-10 w-10 rounded-full"
+                                          />
+                                        </a>
                                         <div>
-                                          <Link href={`/item/${itemLink}`}>
-                                            <a className="block">
-                                              <span className="font-display text-lg leading-none text-jacarta-700 hover:text-accent dark:text-white">
-                                                {title}
-                                              </span>
-                                            </a>
-                                          </Link>
-                                          <Link href="/user/avatar_6">
-                                            <a className="text-2xs text-accent">
-                                              {authorName}
-                                            </a>
-                                          </Link>
+                                          <a className="block">
+                                            <span className="font-display text-lg leading-none text-jacarta-700 hover:text-accent dark:text-white">
+                                              {title}
+                                            </span>
+                                          </a>
+                                          <a className="text-2xs text-accent">
+                                            {authorName}
+                                          </a>
                                         </div>
                                       </div>
                                     </div>

@@ -44,7 +44,7 @@ const footerMenuList = [
       {
         id: 2,
         href: "#",
-        text: "Configure ETHPow Network",
+        text: "Configure Aptos Network",
       },
       {
         id: 3,

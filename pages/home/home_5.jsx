@@ -22,7 +22,7 @@ const Home_5 = () => {
     <>
       <Meta title="PooAptos | The World's Largest Digital Marketplace For NFT" />
       <Hero_5 />
-      <Bids />
+      {/* <Bids /> */}
       <Process />
       <NewseLatter />
       <RoadMap />

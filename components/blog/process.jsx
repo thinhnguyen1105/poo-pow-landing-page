@@ -44,7 +44,7 @@ const Process = () => {
                 Connect your Wallet
               </h3>
               <p className="dark:text-jacarta-300">
-                Set up your MetaMask wallet with ETHPow Network:
+                Set up your MetaMask wallet with Aptos Network:
                 <br />• Network name: Aptos-mainnet
                 <br />• New RPC URL: https://mainnet.ethereumpow.org
                 <br />• Chain ID: 10001

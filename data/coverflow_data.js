@@ -111,14 +111,14 @@ export const hero_5_data = [
     img: "/images/products/poo-doge.png",
     title: "Poo Doge - No: 007",
     authorImage: "/images/avatars/collection_ava_5.png",
-    authorName: "Minted by 051_Hart",
+    authorName: "Minted by 054_Hary",
     id: "0Etherium NFT Launching Lab",
   },
   {
     img: "/images/products/poo-inu.png",
     title: "Rare Poo - No: 345",
     authorImage: "/images/avatars/creator_2.jpg",
-    authorName: "Minted by MadeByM1KE",
+    authorName: "Minted by MadeByWATER",
     id: "1Oceania \\\\ OVERSEER 017",
 
     subItem: [
@@ -126,7 +126,7 @@ export const hero_5_data = [
         img: "/images/products/poo-floki.png",
         title: "Poo Floki - No: 1441",
         authorImage: "/images/avatars/creator_4.jpg",
-        authorName: "Minted by Wow Frens",
+        authorName: "Minted by Wow Americano",
         id: "Minted by 2Light Bars",
       },
     ],
