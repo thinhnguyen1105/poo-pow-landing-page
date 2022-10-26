@@ -4,7 +4,6 @@ import { closeMblMenu } from "../redux/counterSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import UserId from "./userId";
-import { Metamask_comp_text, Metamask_comp_icon } from "./metamask/Metamask";
 import WalletConnect from "./wallet/Martian";
 
 const MblNavbar = ({ theme }) => {
@@ -330,142 +329,29 @@ const MblNavbar = ({ theme }) => {
               <button
                 className={
                   router.asPath === "/home/home_3"
-                    ? "dropdown-toggle font-display hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base text-jacarta-700 dark:lg:text-jacarta-700 lg:text-white lg:px-5 w-full"
-                    : "dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
+                    ? "font-display hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base text-jacarta-700 dark:lg:text-jacarta-700 lg:text-white lg:px-5 w-full"
+                    : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
                 onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "home" ? "text-accent" : ""}>
                   Home
                 </span>
-
-                <i className="lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    className="h-4 w-4 dark:fill-white"
-                  >
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"></path>
-                  </svg>
-                </i>
               </button>
             </Link>
-
-            {/* <ul className="dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2 relative">
-              {homenavData.map(({ id, text, url }) => {
-                return (
-                  <li key={id}>
-                    <Link href={url}>
-                      <a
-                        className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
-                        onClick={() => {
-                          // setHomeNavValue(id);
-                          // setNavItemValue(id);
-                          dispatch(closeMblMenu());
-                          localStorage.setItem("navItemValue", id);
-                        }}
-                      >
-                        <span
-                          className={
-                            navItemValue === id
-                              ? "font-display text-accent text-sm"
-                              : "font-display text-jacarta-700 text-sm dark:text-white"
-                          }
-                        >
-                          {text}
-                        </span>
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul> */}
           </li>
           <li className="js-nav-dropdown group relative">
             <Link href={"#team"}>
               <button
                 className={
                   router.asPath === "/home/home_3"
-                    ? "dropdown-toggle font-display  hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
-                    : "dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
+                    ? "font-display  hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
+                    : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
-                // onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "pages" ? "text-accent" : ""}>
                   About us
                 </span>
-
-                <i className="lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    className="h-4 w-4 dark:fill-white"
-                  >
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"></path>
-                  </svg>
-                </i>
-              </button>
-            </Link>
-            {/* <ul className="dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2 relative">
-              {pageTextData.map(({ id, text, href }) => {
-                return (
-                  <li key={id}>
-                    <Link href={href}>
-                      <a
-                        className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
-                        onClick={() => {
-                          setNavItemValue(id);
-                          localStorage.setItem("navItemValue", id);
-                        }}
-                      >
-                        <span
-                          className={
-                            navItemValue === id
-                              ? "font-display text-accent text-sm"
-                              : "font-display text-jacarta-700 text-sm dark:text-white"
-                          }
-                        >
-                          {text}
-                        </span>
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul> */}
-          </li>
-          <li className="js-nav-dropdown nav-item dropdown group relative">
-            <Link href="#features">
-              <button
-                className={
-                  router.asPath === "/home/home_3"
-                    ? "dropdown-toggle font-display hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
-                    : "dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
-                }
-                // onClick={(e) => handleItemDropdown(e)}
-              >
-                <span className={navText === "collection" ? "text-accent" : ""}>
-                  Features
-                </span>
-
-                <i className="lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    className="h-4 w-4 dark:fill-white"
-                  >
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"></path>
-                  </svg>
-                </i>
               </button>
             </Link>
           </li>
@@ -474,89 +360,21 @@ const MblNavbar = ({ theme }) => {
               <button
                 className={
                   router.asPath === "/home/home_3"
-                    ? "dropdown-toggle font-display focus:text-accent hover:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
-                    : "dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
+                    ? "font-display focus:text-accent hover:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
+                    : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
-                // onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "resources" ? "text-accent" : ""}>
                   Roadmap
                 </span>
-
-                <i className="lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    className="h-4 w-4 dark:fill-white"
-                  >
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"></path>
-                  </svg>
-                </i>
               </button>
             </Link>
-            {/* <ul
-              className="dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2 relative"
-              aria-labelledby="navDropdown-4"
-            >
-              {resourcesData.map(({ id, text, href }) => {
-                return (
-                  <li key={id}>
-                    <Link href={href}>
-                      <a
-                        className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
-                        onClick={() => {
-                          dispatch(closeMblMenu());
-                          localStorage.setItem("navItemValue", id);
-                        }}
-                      >
-                        <span
-                          className={
-                            navItemValue === id
-                              ? "font-display text-accent text-sm"
-                              : "font-display text-jacarta-700 text-sm dark:text-white"
-                          }
-                        >
-                          {text}
-                        </span>
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul> */}
           </li>
-          {/* <li className="group">
-            <Link href="/">
-              <a
-                onClick={() => {
-                  dispatch(closeMblMenu());
-                  localStorage.setItem("navItemValue", 28);
-                }}
-              >
-                <button
-                  className={
-                    router.asPath === "/home/home_3"
-                      ? "font-display hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5"
-                      : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
-                  }
-                >
-                  <span className={navText === "create" ? "text-accent" : ""}>
-                    Tokenomics
-                  </span>
-                </button>
-              </a>
-            </Link>
-          </li> */}
         </ul>
       </nav>
 
       {/* <!-- Mobile Connect Wallet / Socials --> */}
       <div className="mt-10 w-full lg:hidden">
-        <Metamask_comp_text />
-
         <hr className="dark:bg-jacarta-600 bg-jacarta-100 my-5 h-px border-0" />
 
         {/* <!-- Socials --> */}
@@ -638,7 +456,6 @@ const MblNavbar = ({ theme }) => {
       <div className="ml-8 hidden lg:flex xl:ml-12">
         {/* <!-- Wallet --> */}
 
-        {/* <Metamask_comp_icon prop={router} /> */}
         <WalletConnect />
 
         {/* <!-- Profile --> */}
@@ -699,63 +516,9 @@ const MblNavbar = ({ theme }) => {
                 Balance
               </span>
               <div className="flex items-center">
-                <svg className="icon icon-ETH -ml-1 mr-1 h-[1.125rem] w-[1.125rem]">
-                  <use xlinkHref="/icons.svg#icon-ETH"></use>
-                </svg>
-                <span className="text-orange text-lg font-bold">0 Aptos</span>
+                <span className="text-orange text-lg font-bold">0 APT</span>
               </div>
             </div>
-            <Link href="/user/avatar_6">
-              <a className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  className="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z"></path>
-                </svg>
-                <span className="font-display text-jacarta-700 mt-1 text-sm dark:text-white">
-                  My Profile
-                </span>
-              </a>
-            </Link>
-            <Link href="/profile/user_avatar">
-              <a className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  className="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M9.954 2.21a9.99 9.99 0 0 1 4.091-.002A3.993 3.993 0 0 0 16 5.07a3.993 3.993 0 0 0 3.457.261A9.99 9.99 0 0 1 21.5 8.876 3.993 3.993 0 0 0 20 12c0 1.264.586 2.391 1.502 3.124a10.043 10.043 0 0 1-2.046 3.543 3.993 3.993 0 0 0-3.456.261 3.993 3.993 0 0 0-1.954 2.86 9.99 9.99 0 0 1-4.091.004A3.993 3.993 0 0 0 8 18.927a3.993 3.993 0 0 0-3.457-.26A9.99 9.99 0 0 1 2.5 15.121 3.993 3.993 0 0 0 4 11.999a3.993 3.993 0 0 0-1.502-3.124 10.043 10.043 0 0 1 2.046-3.543A3.993 3.993 0 0 0 8 5.071a3.993 3.993 0 0 0 1.954-2.86zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-                </svg>
-                <span className="font-display text-jacarta-700 mt-1 text-sm dark:text-white">
-                  Edit Profile
-                </span>
-              </a>
-            </Link>
-            {/* <Link href="/login">
-              <a className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  className="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM7 11V8l-5 4 5 4v-3h8v-2H7z"></path>
-                </svg>
-                <span className="font-display text-jacarta-700 mt-1 text-sm dark:text-white">
-                  Sign out
-                </span>
-              </a>
-            </Link> */}
           </div>
         </div>
 
