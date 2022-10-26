@@ -6,7 +6,7 @@ import Meta from "../../components/Meta";
 const newsletter = () => {
   return (
     <div>
-      <Meta title="newseletter || PooPow" />
+      <Meta title="newseletter || PooAptos" />
       <div className="pt-[5.5rem] lg:pt-24">
         <Story compFor="news" />
       </div>

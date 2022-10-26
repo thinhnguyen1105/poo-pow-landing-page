@@ -89,7 +89,7 @@ const footer = () => {
               <Link href="https://themeforest.net/user/ib-themes">
                 <a className="hover:text-accent dark:hover:text-white">
                   {" "}
-                  PooPow Team 💩
+                  PooAptos Team 💩
                 </a>
               </Link>
             </span>

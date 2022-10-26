@@ -36,7 +36,7 @@ const User = () => {
 
   return (
     <>
-      <Meta title="User || PooPow" />
+      <Meta title="User || PooAptos" />
       {/* <!-- Profile --> */}
       {user_data
         .filter((item) => item.id === pid)

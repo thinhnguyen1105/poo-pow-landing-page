@@ -20,7 +20,7 @@ import About_news from "../../components/blog/about_news";
 const Home_5 = () => {
   return (
     <>
-      <Meta title="PooPow | The World's Largest Digital Marketplace For NFT" />
+      <Meta title="PooAptos | The World's Largest Digital Marketplace For NFT" />
       <Hero_5 />
       <Bids />
       <Process />

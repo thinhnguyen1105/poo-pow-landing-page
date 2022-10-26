@@ -14,7 +14,7 @@ const Blog = () => {
   };
   return (
     <>
-      <Meta title="Blog || PooPow" />
+      <Meta title="Blog || PooAptos" />
       {/* <!-- Blog --> */}
       <section className="relative py-16 md:py-24">
         <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">

@@ -14,7 +14,7 @@ import Testimonial from "../../components/blog/testimonial";
 const Home_6 = () => {
   return (
     <>
-      <Meta title="Home 5 || PooPow" />
+      <Meta title="Home 5 || PooAptos" />
       <Hero_6 />
       <Bids />
       <Collection_category bgWhite={true} />

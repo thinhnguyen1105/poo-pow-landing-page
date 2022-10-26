@@ -18,7 +18,7 @@ const Home_3 = () => {
 
   return (
     <>
-      <Meta title="Home 3 || PooPow" />
+      <Meta title="Home 3 || PooAptos" />
       <Hero_3 />
       <Browse_category />
       <Bids classes="dark:bg-jacarta-800 relative py-24" bgWhite={true} />

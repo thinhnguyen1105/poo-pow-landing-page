@@ -56,7 +56,7 @@ const Create = () => {
   ];
   return (
     <div>
-      <Meta title="Create || PooPow" />
+      <Meta title="Create || PooAptos" />
       {/* <!-- Create --> */}
       <section className="relative py-24">
         <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">
@@ -328,7 +328,7 @@ const Create = () => {
                             Setting your asset as explicit and sensitive
                             content, like pornography and other not safe for
                             work (NSFW) content, will protect users with safe
-                            search while browsing PooPow
+                            search while browsing PooAptos
                           </span>
                         }
                       >
@@ -375,7 +375,7 @@ const Create = () => {
                         Setting your asset as explicit and sensitive content,
                         like pornography and other not safe for work (NSFW)
                         content, will protect users with safe search while
-                        browsing PooPow.
+                        browsing PooAptos.
                       </span>
                     }
                   >
@@ -433,7 +433,8 @@ const Create = () => {
                     <span className="bg-jacarta-300">
                       Setting your asset as explicit and sensitive content, like
                       pornography and other not safe for work (NSFW) content,
-                      will protect users with safe search while browsing PooPow.
+                      will protect users with safe search while browsing
+                      PooAptos.
                     </span>
                   }
                 >

@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<>
-			<Meta title="PooPow | NFT Marketplace" />
+			<Meta title="PooAptos | NFT Marketplace" />
 
 			<Provider store={store}>
 				<ThemeProvider enableSystem={true} attribute="class">

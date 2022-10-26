@@ -38,7 +38,7 @@ const News_item = ({
                     </a>
                     <span className="dark:text-jacarta-400">in</span>
                     <span className="text-accent inline-flex flex-wrap items-center space-x-1">
-                      <a href="#">{"PooPOW's"}</a>
+                      <a href="#">{"PooAptos's"}</a>
                       <a href="#">Blog</a>
                     </span>
                   </div>

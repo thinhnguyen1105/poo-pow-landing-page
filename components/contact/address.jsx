@@ -83,10 +83,10 @@ const Address = () => {
               Email
             </span>
             <a
-              href="mailto:office@poopow.com"
+              href="mailto:office@PooAptos.com"
               className="hover:text-accent dark:text-jacarta-300 text-sm not-italic"
             >
-              office@poopow.com
+              office@PooAptos.com
             </a>
           </div>
         </div>

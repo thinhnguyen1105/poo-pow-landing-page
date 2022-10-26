@@ -11,7 +11,7 @@ import Meta from "../../components/Meta";
 const Home_1 = () => {
   return (
     <main>
-      <Meta title="Home || PooPow" />
+      <Meta title="Home || PooAptos" />
       <Hero />
       <Bids />
       <Top_collection />

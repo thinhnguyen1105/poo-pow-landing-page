@@ -45,11 +45,11 @@ const Process = () => {
               </h3>
               <p className="dark:text-jacarta-300">
                 Set up your MetaMask wallet with ETHPow Network:
-                <br />• Network name: ETHW-mainnet
+                <br />• Network name: Aptos-mainnet
                 <br />• New RPC URL: https://mainnet.ethereumpow.org
                 <br />• Chain ID: 10001
-                <br />• Currency symbol: ETHW
-                <br />• Block Explorer URL: https://mainnet.ethwscan.com
+                <br />• Currency symbol: Aptos
+                <br />• Block Explorer URL: https://mainnet.Aptosscan.com
               </p>
             </div>
             <div className="relative rounded-2.5xl border border-jacarta-100 bg-white p-10 shadow-[0_5px_0_0_#10b981] transition-shadow hover:shadow-[0_16px_24px_-8px_rgba(16,185,129,.3)] dark:border-jacarta-700 dark:bg-jacarta-700">
@@ -80,8 +80,8 @@ const Process = () => {
               </h3>
               <p className="dark:text-jacarta-300">
                 Go to{" "}
-                <a href="https://app.poopow.net">https://app.poopow.net</a> and
-                click on tab “Mint NFT”. You’ll see the minting price, then
+                <a href="https://app.PooAptos.net">https://app.PooAptos.net</a>{" "}
+                and click on tab “Mint NFT”. You’ll see the minting price, then
                 click on the button “Mint your Poo”. Accept the transaction on
                 MetaMask and you’ll get your first Poo.
               </p>
@@ -117,7 +117,7 @@ const Process = () => {
                 minted your Poo or were unsuccessful in minting one in The NFT
                 Minting Event. Owning poo is a privilege since you can use it to
                 stake or farm to earn BabyPoocoin which you can trade on
-                PooPowSwap later.
+                PooAptosSwap later.
               </p>
             </div>
           </div>

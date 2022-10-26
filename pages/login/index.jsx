@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <div>
-      <Meta title="Login || PooPow" />
+      <Meta title="Login || PooAptos" />
       {/* <!-- Login --> */}
       <section className="relative h-screen">
         <div className="lg:flex lg:h-full">
@@ -44,7 +44,7 @@ const Login = () => {
                 <img
                   src="/images/logo_white.png"
                   className="inline-block max-h-7"
-                  alt="PooPow | NFT Marketplace"
+                  alt="PooAptos | NFT Marketplace"
                 />
               </a>
             </Link>

@@ -18,7 +18,7 @@ const news_data = [
 	{
 		id: '1List your collection for secondary sales',
 		text: 'Following the Ethereum Merge on September 15, Ethereum\'s rival...',
-		title: 'What is EthereumPoW (ETHW)?',
+		title: 'What is EthereumPoW (Aptos)?',
 		image: '/images/blog/post_3.jpg',
 		date: '22 Feb',
 		time: '3 min read',

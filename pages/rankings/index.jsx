@@ -97,7 +97,7 @@ const Index = () => {
 
   return (
     <>
-      <Meta title="Rankings || PooPow" />
+      <Meta title="Rankings || PooAptos" />
       {/* <!-- Rankings --> */}
       <section className="relative lg:mt-24 lg:pb-24 pb-24">
         <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">

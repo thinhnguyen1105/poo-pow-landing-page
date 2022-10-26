@@ -702,7 +702,7 @@ const MblNavbar = ({ theme }) => {
                 <svg className="icon icon-ETH -ml-1 mr-1 h-[1.125rem] w-[1.125rem]">
                   <use xlinkHref="/icons.svg#icon-ETH"></use>
                 </svg>
-                <span className="text-orange text-lg font-bold">0 ETHW</span>
+                <span className="text-orange text-lg font-bold">0 Aptos</span>
               </div>
             </div>
             <Link href="/user/avatar_6">

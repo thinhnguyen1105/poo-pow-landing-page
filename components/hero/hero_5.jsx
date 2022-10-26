@@ -48,15 +48,15 @@ const Hero_5 = () => {
                 </div>
               </div>
               <h1 className="mb-6 text-center font-display text-5xl text-jacarta-700 dark:text-white md:text-left lg:text-5xl xl:text-6xl">
-                PooPow – Trade, Farm And Stake Your “Poo” NFT Assests
+                PooAptos – Trade, Farm And Stake Your “Poo” NFT Assests
               </h1>
               <p className="mb-8 text-center text-lg dark:text-jacarta-200 md:text-left">
-                PooPow is one of the biggest platform on ETHPow Network
+                PooAptos is one of the biggest platform on ETHPow Network
                 including NFT Marketplace, Farming and Staking, Decentralized
                 Exchange,..
               </p>
               <div className="flex space-x-4">
-                <Link href="https://www.oklink.com/en/ethw/">
+                <Link href="https://www.oklink.com/en/Aptos/">
                   <a className="w-36 rounded-full bg-accent py-3 px-8 text-center font-semibold text-white shadow-accent-volume transition-all hover:bg-accent-dark">
                     Explorer
                   </a>

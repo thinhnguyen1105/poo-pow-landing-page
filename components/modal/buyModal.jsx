@@ -133,7 +133,7 @@ const BuyModal = () => {
                   htmlFor="buyNowTerms"
                   className="dark:text-jacarta-200 text-sm"
                 >
-                  By checking this box, I agree to {"PooPow's"}{" "}
+                  By checking this box, I agree to {"PooAptos's"}{" "}
                   <Link href="/tarms">
                     <a className="text-accent">Terms of Service</a>
                   </Link>

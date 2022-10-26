@@ -109,12 +109,12 @@ const Story = ({ compFor }) => {
             {/* <!-- Info --> */}
             <div className="pb-10 lg:w-[45%] lg:py-20 lg:pr-16">
               <h2 className="text-jacarta-700 font-display mb-6 text-2xl dark:text-white">
-                Sign up for The Tide, {"Poopow's"} newsletter!
+                Sign up for The Tide, {"PooAptos's"} newsletter!
               </h2>
               <p className="dark:text-jacarta-300 mb-10 text-lg leading-normal">
                 Join our mailing list to stay in the loop with our newest
                 feature releases, NFT drops, and tips and tricks for navigating
-                PooPow
+                PooAptos
               </p>
 
               <form className="relative">

@@ -24,7 +24,7 @@ const Collection = () => {
 
   return (
     <>
-      <Meta title={`${pid} || PooPow`} />
+      <Meta title={`${pid} || PooAptos`} />
 
       <div className="pt-[5.5rem] lg:pt-24">
         {/* <!-- Banner --> */}
