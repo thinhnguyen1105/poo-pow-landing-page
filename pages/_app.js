@@ -4,25 +4,51 @@ import Layout from '../components/layout';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import { useRouter } from 'next/router';
-import { MetaMaskProvider } from 'metamask-react';
 import Meta from '../components/Meta';
 import UserContext from '../components/UserContext';
 import { useRef } from 'react';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
+import {
+	WalletProvider,
+	AptosWalletAdapter,
+	MartianWalletAdapter,
+	FewchaWalletAdapter,
+	PontemWalletAdapter,
+	SpikaWalletAdapter,
+	RiseWalletAdapter,
+	FletchWalletAdapter
+} from '@manahippo/aptos-wallet-adapter';
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
 	const pid = router.asPath;
 	const scrollRef = useRef({
 		scrollPos: 0,
 	});
+	const wallets = [
+		new RiseWalletAdapter(),
+		new MartianWalletAdapter(),
+		new AptosWalletAdapter(),
+		new FewchaWalletAdapter(),
+		new PontemWalletAdapter(),
+		new SpikaWalletAdapter(),
+		new FletchWalletAdapter()
+	];
 
 	return (
 		<>
 			<Meta title="PooAptos | NFT Marketplace" />
 
 			<Provider store={store}>
+				<ToastContainer />
 				<ThemeProvider enableSystem={true} attribute="class">
-					<MetaMaskProvider>
+					<WalletProvider
+						wallets={wallets}
+						autoConnect={false} /** allow auto wallet connection or not **/
+						onError={(error) => {
+							console.log('Handle Error Message', error);
+						}}>
 						<UserContext.Provider value={{ scrollRef: scrollRef }}>
 							{pid === '/login' ? (
 								<Component {...pageProps} />
@@ -32,7 +58,7 @@ function MyApp({ Component, pageProps }) {
 								</Layout>
 							)}
 						</UserContext.Provider>
-					</MetaMaskProvider>
+					</WalletProvider>
 				</ThemeProvider>
 			</Provider>
 		</>

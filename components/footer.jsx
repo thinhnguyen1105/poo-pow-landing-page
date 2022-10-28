@@ -15,7 +15,7 @@ const footer = () => {
               <Link href="#">
                 <a className="mb-6 inline-block">
                   <img
-                    src="/images/logo.png"
+                    src="/images/logo_white.png"
                     className="max-h-7 dark:hidden"
                     alt="Xhibiter | NFT Marketplace"
                   />

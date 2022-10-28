@@ -4,7 +4,9 @@ import { closeMblMenu } from "../redux/counterSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import UserId from "./userId";
-import WalletConnect from "./wallet/Martian";
+import { useWallet } from "@manahippo/aptos-wallet-adapter";
+import ConnectButton from "./connect/connectButton";
+import { toast } from "react-toastify";
 
 const MblNavbar = ({ theme }) => {
   const { mblMenu } = useSelector((state) => state.counter);
@@ -13,7 +15,7 @@ const MblNavbar = ({ theme }) => {
   const router = useRouter();
   const [navItemValue, setNavItemValue] = useState(1);
   const [navText, setnavText] = useState("");
-
+  const wallet = useWallet();
   const handleItemDropdown = (e) => {
     const target = e.target.closest("li");
 
@@ -23,6 +25,11 @@ const MblNavbar = ({ theme }) => {
       target.classList.remove("show");
     }
   };
+  useEffect(() => {
+    if (!wallet.autoConnect && wallet.wallet?.adapter) {
+      wallet.connect();
+    }
+  }, [wallet]);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -119,140 +126,6 @@ const MblNavbar = ({ theme }) => {
       setnavText("collection");
     }
   }, [dispatch, navItemValue, router]);
-  const homenavData = [
-    {
-      id: 1,
-      text: "home 1",
-      url: "/",
-    },
-    {
-      id: 2,
-      text: "home 2",
-      url: "/home/home_2",
-    },
-    {
-      id: 3,
-      text: "home 3",
-      url: "/home/home_3",
-    },
-    {
-      id: 4,
-      text: "home 4",
-      url: "/home/home_4",
-    },
-    {
-      id: 5,
-      text: "home 5",
-      url: "/home/home_5",
-    },
-    {
-      id: 6,
-      text: "home 6",
-      url: "/home/home_6",
-    },
-  ];
-
-  const pageTextData = [
-    {
-      id: 7,
-      text: "Item Details",
-      href: "/item/item_20",
-    },
-    {
-      id: 8,
-      text: "Explore Collections",
-      href: "/collection/explore_collection",
-    },
-    {
-      id: 9,
-      text: "Collection",
-      href: "/collection/avatar_1",
-    },
-    {
-      id: 10,
-      text: "Activity",
-      href: "/activity",
-    },
-    {
-      id: 11,
-      text: "Rankings",
-      href: "/rankings",
-    },
-    {
-      id: 12,
-      text: "User",
-      href: "/user/avatar_6",
-    },
-    {
-      id: 13,
-      text: "Edit Profile",
-      href: "/profile/user_avatar",
-    },
-    {
-      id: 14,
-      text: "About",
-      href: "/about",
-    },
-    {
-      id: 15,
-      text: "Contact",
-      href: "/contact",
-    },
-    {
-      id: 16,
-      text: "Wallet",
-      href: "/wallet",
-    },
-    {
-      id: 17,
-      text: "Login",
-      href: "/login",
-    },
-    {
-      id: 18,
-      text: "Page 404",
-      href: "/404",
-    },
-    {
-      id: 19,
-      text: "Terms Of Service",
-      href: "/tarms",
-    },
-  ];
-
-  const resourcesData = [
-    {
-      id: 20,
-      text: "Help Center",
-      href: "/help_center",
-    },
-    {
-      id: 21,
-      text: "Platform Status",
-      href: "/platform_status",
-    },
-    {
-      id: 23,
-      text: "Partners",
-      href: "/partners",
-    },
-    {
-      id: 24,
-      text: "Blog",
-      href: "/blog",
-    },
-    {
-      id: 25,
-      text: "Single Post",
-      href: "/single_post/post_1",
-    },
-    {
-      id: 26,
-      text: "Newsletter",
-      href: "/newsletter",
-    },
-  ];
-
   return (
     <div
       className={
@@ -268,7 +141,7 @@ const MblNavbar = ({ theme }) => {
         <Link href="/">
           <a>
             <img
-              src="/images/logo.png"
+              src="/images/logo_white.png"
               className="max-h-7 dark:hidden"
               alt="Xhibiter | NFT Marketplace"
             />
@@ -348,10 +221,80 @@ const MblNavbar = ({ theme }) => {
                     ? "font-display  hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
                     : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
+                // onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "pages" ? "text-accent" : ""}>
                   About us
                 </span>
+
+                <i className="lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    className="h-4 w-4 dark:fill-white"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"></path>
+                  </svg>
+                </i>
+              </button>
+            </Link>
+            {/* <ul className="dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2 relative">
+              {pageTextData.map(({ id, text, href }) => {
+                return (
+                  <li key={id}>
+                    <Link href={href}>
+                      <a
+                        className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                        onClick={() => {
+                          setNavItemValue(id);
+                          localStorage.setItem("navItemValue", id);
+                        }}
+                      >
+                        <span
+                          className={
+                            navItemValue === id
+                              ? "font-display text-accent text-sm"
+                              : "font-display text-jacarta-700 text-sm dark:text-white"
+                          }
+                        >
+                          {text}
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul> */}
+          </li>
+          <li className="js-nav-dropdown nav-item dropdown group relative">
+            <Link href="#features">
+              <button
+                className={
+                  router.asPath === "/home/home_3"
+                    ? "dropdown-toggle font-display hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
+                    : "dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
+                }
+                // onClick={(e) => handleItemDropdown(e)}
+              >
+                <span className={navText === "collection" ? "text-accent" : ""}>
+                  Features
+                </span>
+
+                <i className="lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    className="h-4 w-4 dark:fill-white"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"></path>
+                  </svg>
+                </i>
               </button>
             </Link>
           </li>
@@ -363,12 +306,17 @@ const MblNavbar = ({ theme }) => {
                     ? "font-display focus:text-accent hover:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
                     : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
+                // onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "resources" ? "text-accent" : ""}>
                   Roadmap
                 </span>
               </button>
             </Link>
+          </li>
+          <li className="js-nav-dropdown group relative">
+            {/* <!-- Wallet --> */}
+            <ConnectButton connectButton={!wallet.connected} />
           </li>
         </ul>
       </nav>
@@ -454,72 +402,91 @@ const MblNavbar = ({ theme }) => {
 
       {/* <!-- Actions --> */}
       <div className="ml-8 hidden lg:flex xl:ml-12">
-        {/* <!-- Wallet --> */}
-
-        <WalletConnect />
-
         {/* <!-- Profile --> */}
         <div className="js-nav-dropdown group-dropdown relative">
-          {router.asPath === "/home/home_3" ? (
-            <button
-              className="dropdown-toggle border-jacarta-100 focus:bg-accent group hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent border-transparent bg-white/[.15]"
-              onMouseEnter={() => setProfileShow(true)}
-              onMouseLeave={() => setProfileShow(false)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                className=" h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white fill-white"
+          {wallet.connected ? (
+            <div>
+              <button
+                className="dropdown-toggle border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                onMouseEnter={() => setProfileShow(true)}
+                onMouseLeave={() => setProfileShow(false)}
               >
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z"></path>
-              </svg>
-            </button>
-          ) : (
-            <button
-              className="dropdown-toggle border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
-              onMouseEnter={() => setProfileShow(true)}
-              onMouseLeave={() => setProfileShow(false)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                className="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  className="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                >
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z"></path>
+                </svg>
+              </button>
+              <div
+                className={
+                  profileShow
+                    ? "dropdown-menu dark:bg-jacarta-800 group-dropdown-hover:opacity-100 group-dropdown-hover:visible !-right-4 !top-[85%] !left-auto z-10 min-w-[14rem] whitespace-nowrap rounded-xl bg-white transition-all will-change-transform before:absolute before:-top-3 before:h-3 before:w-full lg:absolute lg:grid lg:!translate-y-4 lg:py-4 lg:px-2 lg:shadow-2xl show lg:visible lg:opacity-100"
+                    : "dropdown-menu dark:bg-jacarta-800 group-dropdown-hover:opacity-100 group-dropdown-hover:visible !-right-4 !top-[85%] !left-auto z-10 min-w-[14rem] whitespace-nowrap rounded-xl bg-white transition-all will-change-transform before:absolute before:-top-3 before:h-3 before:w-full lg:absolute lg:grid lg:!translate-y-4 lg:py-4 lg:px-2 lg:shadow-2xl hidden lg:invisible lg:opacity-0"
+                }
+                onMouseEnter={() => setProfileShow(true)}
+                onMouseLeave={() => setProfileShow(false)}
               >
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z"></path>
-              </svg>
-            </button>
-          )}
+                <UserId
+                  classes="js-copy-clipboard font-display text-jacarta-700 my-4 flex select-none items-center whitespace-nowrap px-5 leading-none dark:text-white"
+                  userId={wallet.account.address}
+                  shortId={true}
+                />
 
-          <div
-            className={
-              profileShow
-                ? "dropdown-menu dark:bg-jacarta-800 group-dropdown-hover:opacity-100 group-dropdown-hover:visible !-right-4 !top-[85%] !left-auto z-10 min-w-[14rem] whitespace-nowrap rounded-xl bg-white transition-all will-change-transform before:absolute before:-top-3 before:h-3 before:w-full lg:absolute lg:grid lg:!translate-y-4 lg:py-4 lg:px-2 lg:shadow-2xl show lg:visible lg:opacity-100"
-                : "dropdown-menu dark:bg-jacarta-800 group-dropdown-hover:opacity-100 group-dropdown-hover:visible !-right-4 !top-[85%] !left-auto z-10 min-w-[14rem] whitespace-nowrap rounded-xl bg-white transition-all will-change-transform before:absolute before:-top-3 before:h-3 before:w-full lg:absolute lg:grid lg:!translate-y-4 lg:py-4 lg:px-2 lg:shadow-2xl hidden lg:invisible lg:opacity-0"
-            }
-            onMouseEnter={() => setProfileShow(true)}
-            onMouseLeave={() => setProfileShow(false)}
-          >
-            <UserId
-              classes="js-copy-clipboard font-display text-jacarta-700 my-4 flex select-none items-center whitespace-nowrap px-5 leading-none dark:text-white"
-              userId="0x7a86c0b064171007716bbd6af96676935799a63e"
-              shortId={true}
-            />
-
-            <div className="dark:border-jacarta-600 border-jacarta-100 mx-5 mb-6 rounded-lg border p-4">
-              <span className="dark:text-jacarta-200 text-sm font-medium tracking-tight">
-                Balance
-              </span>
-              <div className="flex items-center">
-                <span className="text-orange text-lg font-bold">0 APT</span>
+                <div className="dark:border-jacarta-600 border-jacarta-100 mx-5 mb-6 rounded-lg border p-4">
+                  <span className="dark:text-jacarta-200 text-sm font-medium tracking-tight">
+                    Balance
+                  </span>
+                  <div className="flex items-center">
+                    <svg className="icon icon-ETH -ml-1 mr-1 h-[1.125rem] w-[1.125rem]">
+                      <use xlinkHref="/icons.svg#icon-ETH"></use>
+                    </svg>
+                    <span className="text-orange text-lg font-bold">0 APT</span>
+                  </div>
+                </div>
+                <Link href="/user/avatar_6">
+                  <a className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      className="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
+                    >
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z"></path>
+                    </svg>
+                    <span className="font-display text-jacarta-700 mt-1 text-sm dark:text-white">
+                      My Profile
+                    </span>
+                  </a>
+                </Link>
+                <Link href="/profile/user_avatar">
+                  <a className="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      className="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
+                    >
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M9.954 2.21a9.99 9.99 0 0 1 4.091-.002A3.993 3.993 0 0 0 16 5.07a3.993 3.993 0 0 0 3.457.261A9.99 9.99 0 0 1 21.5 8.876 3.993 3.993 0 0 0 20 12c0 1.264.586 2.391 1.502 3.124a10.043 10.043 0 0 1-2.046 3.543 3.993 3.993 0 0 0-3.456.261 3.993 3.993 0 0 0-1.954 2.86 9.99 9.99 0 0 1-4.091.004A3.993 3.993 0 0 0 8 18.927a3.993 3.993 0 0 0-3.457-.26A9.99 9.99 0 0 1 2.5 15.121 3.993 3.993 0 0 0 4 11.999a3.993 3.993 0 0 0-1.502-3.124 10.043 10.043 0 0 1 2.046-3.543A3.993 3.993 0 0 0 8 5.071a3.993 3.993 0 0 0 1.954-2.86zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                    </svg>
+                    <span className="font-display text-jacarta-700 mt-1 text-sm dark:text-white">
+                      Edit Profile
+                    </span>
+                  </a>
+                </Link>
               </div>
             </div>
-          </div>
+          ) : (
+            <></>
+          )}
         </div>
 
         {/* <!-- Dark Mode --> */}

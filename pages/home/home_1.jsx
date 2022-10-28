@@ -1,24 +1,37 @@
 import React from "react";
+import Collection_category from "../../components/collectrions/collection_category";
 import {
-  Hero,
+  Feature_collections,
+  HeadLine,
+  Partners,
   Bids,
-  Top_collection,
-  Tranding_category,
   NewseLatter,
+  RoadMap,
 } from "../../components/component";
 import Meta from "../../components/Meta";
+import Hero_5 from "../../components/hero/hero_5";
+import Process from "../../components/blog/process";
+import FilterCategoryItem from "../../components/categories/filterCategoryItem";
+import Download from "../../components/blog/download";
+import Story from "../../components/about/story";
+import Team from "../../components/about/team";
+import About_news from "../../components/blog/about_news";
 
-const Home_1 = () => {
+const Home_5 = () => {
   return (
-    <main>
-      <Meta title="Home || PooAptos" />
-      <Hero />
-      <Bids />
-      <Top_collection />
-      <Tranding_category />
+    <>
+      <Meta title="PooAptos | The World's Largest Digital Marketplace For NFT" />
+      <Hero_5 />
+      {/* <Bids /> */}
+      <Process />
       <NewseLatter />
-    </main>
+      <RoadMap />
+      <Story compFor="about" />
+      <Team />
+      <Partners />
+      <About_news />
+    </>
   );
 };
 
-export default Home_1;
+export default Home_5;
