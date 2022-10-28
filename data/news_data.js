@@ -18,7 +18,7 @@ const news_data = [
 	{
 		id: '1List your collection for secondary sales',
 		text: 'Following the Ethereum Merge on September 15, Ethereum\'s rival...',
-		title: 'What is EthereumPoW (Aptos)?',
+		title: 'What is Aptos?',
 		image: '/images/blog/post_3.jpg',
 		date: '22 Feb',
 		time: '3 min read',
@@ -107,7 +107,7 @@ const single_news_data = [
 		time: '3 min read',
 		subImages: ['/images/blog/gallery_1.jpg', '/images/blog/gallery_2.jpg'],
 		authorImage: '/images/blog/author_large.jpg',
-		authorName: 'Deothemes',
+		authorName: 'PooTeam',
 	},
 	{
 		id: 'post_2',
@@ -118,7 +118,7 @@ const single_news_data = [
 		time: '3 min read',
 		subImages: ['/images/blog/gallery_1.jpg', '/images/blog/gallery_2.jpg'],
 		authorImage: '/images/blog/author_large.jpg',
-		authorName: 'Deothemes',
+		authorName: 'PooTeam',
 	},
 	{
 		id: 'post_3',
@@ -129,7 +129,7 @@ const single_news_data = [
 		time: '3 min read',
 		subImages: ['/images/blog/gallery_1.jpg', '/images/blog/gallery_2.jpg'],
 		authorImage: '/images/blog/author_large.jpg',
-		authorName: 'Deothemes',
+		authorName: 'PooTeam',
 	},
 	{
 		id: 'post_4',
@@ -140,7 +140,7 @@ const single_news_data = [
 		time: '3 min read',
 		subImages: ['/images/blog/gallery_1.jpg', '/images/blog/gallery_2.jpg'],
 		authorImage: '/images/blog/author_large.jpg',
-		authorName: 'Deothemes',
+		authorName: 'PooTeam',
 	},
 	{
 		id: 'post_5',
@@ -151,7 +151,7 @@ const single_news_data = [
 		time: '3 min read',
 		subImages: ['/images/blog/gallery_1.jpg', '/images/blog/gallery_2.jpg'],
 		authorImage: '/images/blog/author_large.jpg',
-		authorName: 'Deothemes',
+		authorName: 'PooTeam',
 	},
 	{
 		id: 'post_6',
@@ -162,7 +162,7 @@ const single_news_data = [
 		time: '3 min read',
 		subImages: ['/images/blog/gallery_1.jpg', '/images/blog/gallery_2.jpg'],
 		authorImage: '/images/blog/author_large.jpg',
-		authorName: 'Deothemes',
+		authorName: 'PooTeam',
 	},
 ];
 

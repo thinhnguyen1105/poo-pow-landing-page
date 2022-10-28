@@ -186,10 +186,10 @@ const Platform_status = () => {
                   <span>Incident History</span>
                 </a>
                 <a
-                  href="https://deothemes.com"
+                  href="https://PooTeam.com"
                   className="dark:text-jacarta-300 hover:text-blue"
                 >
-                  Powered by DeoThemes
+                  Powered by PooTeam
                 </a>
               </div>
             </div>

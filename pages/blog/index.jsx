@@ -47,7 +47,7 @@ const Blog = () => {
                 <div className="mb-3 flex flex-wrap items-center space-x-1 text-xs">
                   <Link href="#">
                     <a className="dark:text-jacarta-200 text-jacarta-700 font-display hover:text-accent">
-                      Deothemes
+                      PooTeam
                     </a>
                   </Link>
                   <span className="dark:text-jacarta-400">in</span>

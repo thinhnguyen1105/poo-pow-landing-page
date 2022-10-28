@@ -34,7 +34,7 @@ const News_item = ({
                       href="#"
                       className="dark:text-jacarta-200 text-jacarta-700 font-display hover:text-accent"
                     >
-                      POW
+                      APT
                     </a>
                     <span className="dark:text-jacarta-400">in</span>
                     <span className="text-accent inline-flex flex-wrap items-center space-x-1">
