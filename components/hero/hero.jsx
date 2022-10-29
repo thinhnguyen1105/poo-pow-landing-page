@@ -1,94 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from "react";
 import Link from "next/link";
-import { AptosClient } from "aptos";
-import { useWallet } from '@manahippo/aptos-wallet-adapter';
-import { toast } from 'react-toastify';
-import cmHelper from "../../config/helper"
-import { contract, collectionName, NODE_URL } from "../../config/constants"
-import MintSuccessModal from '../modal/mintSuccessModal';
-const aptosClient = new AptosClient(NODE_URL)
-const autoCmRefresh = 10000;
 const hero = () => {
-  const wallet = useWallet();
-  const [mintInfo, setMintInfo] = useState({ numToMint: 1, minting: false, success: false, mintedNfts: [] })
-  const [isFetchignCmData, setIsFetchignCmData] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-  const [Data, setData] = useState({ data: {}, fetch: fetchData })
-  const mint = async () => {
-    if (wallet.account?.address?.toString() === undefined || mintInfo.minting) return;
-    console.log(wallet.account?.address?.toString());
-    setMintInfo({ ...mintInfo, minting: true })
-    // Generate a transaction
-    const payload = {
-      type: "entry_function_payload",
-      function: "0xc071ef709539f7f9372f16050bf984fe6f11850594b8394f11bc74d22f48836b::candy_machine_v2::mint_tokens",
-      type_arguments: [],
-      arguments: [
-        contract,
-        collectionName,
-        mintInfo.numToMint,
-      ]
-    };
-
-    let txInfo;
-    try {
-      const txHash = await wallet.signAndSubmitTransaction(payload);
-      console.log(txHash);
-      txInfo = await aptosClient.waitForTransactionWithResult(txHash.hash)
-    } catch (err) {
-      txInfo = {
-        success: false,
-        vm_status: err.message,
-      }
-    }
-    handleMintTxResult(txInfo)
-    if (txInfo.success) setData({ ...Data, data: { ...Data.data, numMintedTokens: (parseInt(Data.data.numMintedTokens) + parseInt(mintInfo.numToMint)).toString() } })
-    setShowModal(true)
-  }
-  async function handleMintTxResult(txInfo) {
-    console.log(txInfo);
-    const mintSuccess = txInfo.success;
-    console.log(mintSuccess ? "Mint success!" : `Mint failure, an error occured.`)
-
-    let mintedNfts = []
-    if (!mintSuccess) {
-      /// Handled error messages
-      const handledErrorMessages = new Map([
-        ["Failed to sign transaction", "An error occured while signing."],
-        ["Move abort in 0x1::coin: EINSUFFICIENT_BALANCE(0x10006): Not enough coins to complete transaction", "Insufficient funds to mint."],
-      ]);
-
-      const txStatusError = txInfo.vm_status;
-      console.error(`Mint not successful: ${txStatusError}`);
-      let errorMessage = handledErrorMessages.get(txStatusError);
-      errorMessage = errorMessage === undefined ? "Unkown error occured. Try again." : errorMessage;
-
-      toast.error(errorMessage);
-    } else {
-      mintedNfts = await cmHelper.getMintedNfts(aptosClient, Data.data.tokenDataHandle, Data.data.contract, collectionName, txInfo)
-      toast.success("Minting success!")
-    }
-    setMintInfo({ ...mintInfo, minting: false, success: mintSuccess, mintedNfts })
-    console.log({ ...mintInfo, minting: false, success: mintSuccess, mintedNfts })
-  }
-  async function fetchData(indicateIsFetching = false) {
-    console.log("Fetching candy machine data...")
-    if (indicateIsFetching) setIsFetchignCmData(true)
-    const cmResourceAccount = await cmHelper.getResourceAccount();
-    if (cmResourceAccount === null) {
-      setData({ ...Data, data: {} })
-      setIsFetchignCmData(false)
-      return
-    }
-    const collectionInfo = await cmHelper.getCollectionInfo(cmResourceAccount);
-    const configData = await cmHelper.getConfigData(collectionInfo.ConfigHandle);
-    setData({ ...Data, data: { cmResourceAccount, ...collectionInfo, ...configData } })
-    setIsFetchignCmData(false)
-  }
-  useEffect(() => {
-    fetchData(true)
-    setInterval(fetchData, autoCmRefresh)
-  }, [])
   return (
     <section className="relative pb-10 pt-20 md:pt-32 h-1527">
       <picture className="pointer-events-none absolute inset-x-0 top-0 -z-10 block dark:hidden h-full">
@@ -117,10 +29,9 @@ const hero = () => {
               non-fungible tokens
             </p>
             <div className="flex space-x-4">
-              <button onClick={mint} className="bg-accent shadow-accent-volume hover:bg-accent-dark w-36 rounded-full py-3 px-8 text-center font-semibold text-white transition-all">
+              <button className="bg-accent shadow-accent-volume hover:bg-accent-dark w-36 rounded-full py-3 px-8 text-center font-semibold text-white transition-all">
                 Mint NFT
               </button>
-              <MintSuccessModal show={showModal} data={{ numToMint: 1, minting: false, success: true, mintedNfts: [{ name: 'BTC Aptos Poo', imageUri: 'https://gateway.pinata.cloud/ipfs/QmPhLXcUy7HUnEaRg3Q3yjCkjuNLg2xA2giD75dzx7QsVK' }] }} onHide={() => { setShowModal(false) }} />
               <Link href="/collection/explore_collection">
                 <a className="text-accent shadow-white-volume hover:bg-accent-dark hover:shadow-accent-volume w-36 rounded-full bg-white py-3 px-8 text-center font-semibold transition-all hover:text-white">
                   Explore
