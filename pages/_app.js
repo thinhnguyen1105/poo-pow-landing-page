@@ -14,12 +14,9 @@ import {
 	WalletProvider,
 	AptosWalletAdapter,
 	MartianWalletAdapter,
-	FewchaWalletAdapter,
-	PontemWalletAdapter,
-	SpikaWalletAdapter,
 	RiseWalletAdapter,
-	FletchWalletAdapter
 } from '@manahippo/aptos-wallet-adapter';
+
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
 	const pid = router.asPath;
@@ -30,10 +27,6 @@ function MyApp({ Component, pageProps }) {
 		new RiseWalletAdapter(),
 		new MartianWalletAdapter(),
 		new AptosWalletAdapter(),
-		new FewchaWalletAdapter(),
-		new PontemWalletAdapter(),
-		new SpikaWalletAdapter(),
-		new FletchWalletAdapter()
 	];
 
 	return (
