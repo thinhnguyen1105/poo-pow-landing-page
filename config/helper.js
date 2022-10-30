@@ -87,9 +87,6 @@ async function getMintedNfts(aptosClient, collectionTokenDataHandle, resourceAcc
         }
         mintedNfts.push(mintedNft)
     }
-
-    console.log("Minted NFTs")
-    console.log(mintedNfts)
     return mintedNfts
 }
 

@@ -1,7 +1,6 @@
 import React from "react";
 
 const Story = ({ compFor }) => {
-  console.log(compFor);
   if (compFor === "about") {
     return (
       <div>

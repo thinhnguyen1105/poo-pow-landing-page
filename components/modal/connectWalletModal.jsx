@@ -1,4 +1,5 @@
 import { useWallet } from "@manahippo/aptos-wallet-adapter";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { walletModalhide } from "../../redux/counterSlice";
 
@@ -6,6 +7,18 @@ const ConnectWalletModal = () => {
   const walletModal = useSelector((state) => state.counter.walletModal);
   const dispatch = useDispatch();
   const wallet = useWallet();
+
+  const handleSelectNetwork = async (adapter) => {
+    await wallet.select(adapter.name);
+    localStorage.setItem("currentNetwork", adapter.name);
+    dispatch(walletModalhide());
+  };
+
+  useEffect(() => {
+    const currentNetwork = localStorage.getItem("currentNetwork");
+    if (currentNetwork) wallet.select(currentNetwork);
+  }, []);
+
   return (
     <div>
       <div
@@ -41,11 +54,7 @@ const ConnectWalletModal = () => {
                   <button
                     key={adapter.name}
                     className="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 dark:hover:bg-accent hover:bg-accent text-jacarta-700 mb-4 flex w-full items-center justify-center rounded-full border-2 bg-white py-4 px-8 text-center font-semibold transition-all hover:border-transparent hover:text-white dark:text-white dark:hover:border-transparent"
-                    onClick={async () => {
-                      console.log(adapter);
-                      await wallet.select(adapter.name);
-                      dispatch(walletModalhide());
-                    }}
+                    onClick={() => handleSelectNetwork(adapter)}
                   >
                     <img
                       src={adapter.icon}

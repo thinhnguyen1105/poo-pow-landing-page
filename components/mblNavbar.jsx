@@ -24,10 +24,14 @@ const MblNavbar = ({ theme }) => {
       target.classList.remove("show");
     }
   };
+
+  const handleDisconnect = () => {
+    localStorage.removeItem("currentNetwork");
+    wallet.disconnect();
+  };
+
   useEffect(() => {
-    console.log("wallet", wallet);
     if (!wallet.autoConnect && wallet.wallet?.adapter) {
-      console.log("connect");
       wallet.connect();
     }
   }, [wallet]);
@@ -445,6 +449,12 @@ const MblNavbar = ({ theme }) => {
                   <div className="flex items-center">
                     <span className="text-orange text-lg font-bold">0 APT</span>
                   </div>
+                </div>
+                <div
+                  onClick={handleDisconnect}
+                  className=" cursor-pointer font-display text-jacarta-700 my-4 flex select-none items-center whitespace-nowrap px-5 leading-none dark:text-white"
+                >
+                  Disconnect
                 </div>
               </div>
             </div>
