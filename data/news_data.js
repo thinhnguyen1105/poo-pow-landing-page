@@ -9,27 +9,30 @@ const news_data = [
 	},
 	{
 		id: '0Mint your own Tezos collections',
-		text: 'The Ethereum Merge is the joining of Ethereu...',
-		title: 'What Is the Ethereum Merge?',
+		text: 'Aptos is a Layer 1 blockchain that uses the Move programming language. The Aptos genesis occurred on October 12, 2022, with Aptos blockchain mainnet "Aptos Autumn" launched on October 17, 2022.The blockchain has raised millions of dollars from investors so far...',
+		title: 'What Is Aptos?',
 		image: '/images/blog/post_2.jpg',
-		date: '5 Feb',
+		date: '5 Oct',
 		time: '3 min read',
+		link: 'https://learn.bybit.com/altcoins/what-is-aptos/'
 	},
 	{
 		id: '1List your collection for secondary sales',
-		text: 'Following the Ethereum Merge on September 15, Ethereum\'s rival...',
-		title: 'What is Aptos?',
+		text: 'Binance Labs, the venture capital arm and innovation incubator of Binance, made a strategic investment in Aptos Labs...',
+		title: 'Binance Labs Makes Strategic Investment in Aptos Labs for the Industry Adoption Acceleration',
 		image: '/images/blog/post_3.jpg',
-		date: '22 Feb',
+		date: '22 Oct',
 		time: '3 min read',
+		link: 'https://www.binance.com/en/blog/ecosystem/binance-labs-makes-strategic-investment-in-aptos-labs-for-the-industry-adoption-acceleration-421499824684903620'
 	},
 	{
 		id: '2The biggest moves in NFTs, Bitcoin, crypto rules',
-		text: 'Centralization has helped onboard billions of people to the World...',
-		title: 'What is Web3 and why is it important?',
+		text: 'Tokens that private investors hold are subject to a 12-month lockup, while the entire circulating supply will be released in the next 10 years.',
+		title: 'New Blockchain Aptos Unveils Controversial Tokenomics, APT Incentive Plans',
 		image: '/images/blog/post_1.jpg',
-		date: '18 Jan',
+		date: '18 Oct',
 		time: '3 min read',
+		link: 'https://www.coindesk.com/business/2022/10/18/new-blockchain-aptos-unveils-controversial-tokenomics-apt-incentive-plans/'
 	},
 	{
 		id: "3Incredible Amount of Developer Energy' in Web3",

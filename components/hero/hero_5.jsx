@@ -51,9 +51,9 @@ const Hero_5 = () => {
                 PooAptos – Trade, Farm And Stake Your “Poo” NFT Assests
               </h1>
               <p className="mb-8 text-center text-lg dark:text-jacarta-200 md:text-left">
-                PooAptos is one of the biggest platform on Aptos Network
-                including NFT Marketplace, Farming and Staking, Decentralized
-                Exchange,..
+                PooAptos Is One Of The Biggest Platform On Aptos Network
+                Including NFT Minting Event, NFT Marketplace, Farming And
+                Staking,..
               </p>
               <div className="flex space-x-4">
                 <Link href="https://explorer.aptoslabs.com/">

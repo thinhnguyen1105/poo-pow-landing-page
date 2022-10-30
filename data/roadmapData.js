@@ -27,7 +27,7 @@ const roadmapData = [
     icon: { parentBg: '#ffd0d0', childBg: 'rgb(239 68 68)', svg: 'icon-list' },
     title: ['Q2 2023'],
     text: 'Choose between auctions, fixed-price listings, and declining-price listings. You choose how you want tosell your NFTs!',
-    actions: ['DEX Development', 'DEX Finalization', '“BabyPoocoin” DEX Listing', 'More network integrating to DEX']
+    actions: ['“BabyPoocoin” DEX Listing', 'PooAptos NFT Marketplace offers support for more networks']
   },
 ];
 

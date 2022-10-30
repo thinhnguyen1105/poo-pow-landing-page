@@ -19,7 +19,7 @@ const About_news = () => {
         </picture>
         <div className="container">
           <HeadLine
-            text="Have You Read About Poo In The News?"
+            text="Have You Read About Aptos In The News?"
             classes="font-display text-jacarta-700 mb-12 text-center text-3xl dark:text-white"
           />
 

@@ -9,13 +9,12 @@ const News_item = ({
     <>
       <div className={classes}>
         {data.map((item) => {
-          const { id, image, title, text, date, time } = item;
-          const link = image.split("/").slice(3).toString().replace(".jpg", "");
+          const { id, image, title, text, date, time, link } = item;
           return (
             <article key={id}>
               <div className="rounded-2xl overflow-hidden transition-shadow hover:shadow-lg">
                 <figure className="group overflow-hidden ">
-                  <Link href={`/`}>
+                  <Link href={link}>
                     <a>
                       <img
                         src={image}
@@ -44,7 +43,7 @@ const News_item = ({
                   </div>
 
                   <h2 className="font-display text-jacarta-700 dark:hover:text-accent hover:text-accent mb-4 text-xl dark:text-white">
-                    <Link href={`/`}>
+                    <Link href={link}>
                       <a> {title} </a>
                     </Link>
                   </h2>

@@ -23,7 +23,7 @@ const newseLatterData = [
 		id: '4',
 		icon: { parentBg: '#ffd0d0', childBg: 'rgb(239 68 68)', svg: 'icon-list' },
 		title: ['DEX'],
-		text: 'In addition to NFT, our application will have a decentralized exchange with Aptos as its initial integrated network.',
+		text: 'Additionally, the PooAptos platform has an NFT Marketplace where other NFT products created with Aptos can be listed and traded.',
 	},
 ];
 

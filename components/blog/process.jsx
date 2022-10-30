@@ -44,12 +44,23 @@ const Process = () => {
                 Connect your Wallet
               </h3>
               <p className="dark:text-jacarta-300">
-                Set up your MetaMask wallet with Aptos Network:
-                <br />• Network name: Aptos-mainnet
-                <br />• New RPC URL: https://mainnet.ethereumpow.org
-                <br />• Chain ID: 10001
-                <br />• Currency symbol: Aptos
-                <br />• Block Explorer URL: https://mainnet.Aptosscan.com
+                Set up your Petra or Martian Wallet, the two Aptos Network
+                wallets that are the most dependable:
+                <br />
+                <br />• Petra Wallet, available at{" "}
+                <a className="lowercase" href="https://petra.app/">
+                  https://petra.app/
+                </a>
+                <br />
+                <br />• Martian Wallet, available at
+                <a className="lowercase" href="https://martianwallet.xyz/">
+                  https://martianwallet.xyz/
+                </a>{" "}
+                https://martianwallet.xyz/
+                <br />
+                <br />
+                Be prepared with Aptos for the minting fee after creating your
+                Aptos wallet.
               </p>
             </div>
             <div className="relative rounded-2.5xl border border-jacarta-100 bg-white p-10 shadow-[0_5px_0_0_#10b981] transition-shadow hover:shadow-[0_16px_24px_-8px_rgba(16,185,129,.3)] dark:border-jacarta-700 dark:bg-jacarta-700">
@@ -79,11 +90,13 @@ const Process = () => {
                 Mint Your Poo
               </h3>
               <p className="dark:text-jacarta-300">
-                Go to{" "}
-                <a href="https://app.PooAptos.net">https://app.PooAptos.net</a>{" "}
-                and click on tab “Mint NFT”. You’ll see the minting price, then
-                click on the button “Mint your Poo”. Accept the transaction on
-                MetaMask and you’ll get your first Poo.
+                Go To{" "}
+                <a className="lowercase" href="https://pooaptos.com">
+                  https://pooaptos.com
+                </a>{" "}
+                And Click On Tab “Mint NFT”. You’ll See The Minting Price, Then
+                Click On The Button “Mint Your Poo”. Accept The Transaction On
+                Petra/Martian Wallet And You’ll Get Your First Poo.
               </p>
             </div>
             <div className="relative rounded-2.5xl border border-jacarta-100 bg-white p-10 shadow-[0_5px_0_0_#ef4444] transition-shadow hover:shadow-[0_16px_24px_-8px_rgba(239,68,68,.3)] dark:border-jacarta-700 dark:bg-jacarta-700">
