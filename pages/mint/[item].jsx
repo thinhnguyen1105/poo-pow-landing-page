@@ -22,7 +22,7 @@ const Item = () => {
 
   return (
     <>
-      <Meta title={`${pid} || Xhibiter | NFT Marketplace Next.js Template`} />
+      <Meta title={`Mint NFT | PooAptos`} />
       {/*  <!-- Item --> */}
       <section className="relative lg:mt-24 lg:pt-24 lg:pb-24 mt-24 pt-12 pb-24">
         <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">
@@ -134,27 +134,29 @@ const Item = () => {
                         <Auctions_dropdown classes="dark:border-jacarta-600 dark:hover:bg-jacarta-600 border-jacarta-100 dropdown hover:bg-jacarta-100 dark:bg-jacarta-700 rounded-xl border bg-white" />
                       </div>
                     </div>
-
-                    <h1 className="font-display text-jacarta-700 mb-4 text-4xl font-semibold dark:text-white">
-                      {title}
-                    </h1>
+                    <div className="flex items-center mb-4">
+                      <h1 className="font-display text-jacarta-700 text-4xl font-semibold dark:text-white">
+                        {title}{" "}
+                      </h1>
+                      <img
+                        className="mx-2"
+                        src="/images/chains/logo-apt.png"
+                        width={30}
+                      ></img>
+                      <h1 className="text-green font-display text-4xl font-semibold dark:text-white">
+                        1 APT
+                      </h1>
+                    </div>
 
                     <div className="mb-8 flex items-center space-x-4 whitespace-nowrap">
+                      <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
+                        Mint Price
+                      </span>
                       <div className="flex items-center">
-                        <Tippy content={<span>APT</span>}>
-                          <span className="-ml-1">
-                            <svg className="icon mr-1 h-4 w-4">
-                              <use xlinkHref="/icons.svg#icon-APT"></use>
-                            </svg>
-                          </span>
-                        </Tippy>
                         <span className="text-green text-sm font-medium tracking-tight">
-                          {price} APT
+                          {price}
                         </span>
                       </div>
-                      <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
-                        Highest bid
-                      </span>
                       <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
                         1/1 available
                       </span>
@@ -191,7 +193,7 @@ const Item = () => {
                         </figure>
                         <div className="flex flex-col justify-center">
                           <span className="text-jacarta-400 block text-sm dark:text-white">
-                            Creator <strong>10% royalties</strong>
+                            Creator <strong>100% royalties</strong>
                           </span>
                           <Link href="/user/avatar_6">
                             <a className="text-accent block">
@@ -202,99 +204,15 @@ const Item = () => {
                           </Link>
                         </div>
                       </div>
-
-                      <div className="mb-4 flex">
-                        <figure className="mr-4 shrink-0">
-                          <Link href="/user/avatar_6">
-                            <a className="relative block">
-                              <img
-                                src={ownerImage}
-                                alt={ownerName}
-                                className="rounded-2lg h-12 w-12"
-                                loading="lazy"
-                              />
-                              <div
-                                className="dark:border-jacarta-600 bg-green absolute -right-3 top-[60%] flex h-6 w-6 items-center justify-center rounded-full border-2 border-white"
-                                data-tippy-content="Verified Collection"
-                              >
-                                <Tippy
-                                  content={<span>Verified Collection</span>}
-                                >
-                                  <svg className="icon h-[.875rem] w-[.875rem] fill-white">
-                                    <use xlinkHref="/icons.svg#icon-right-sign"></use>
-                                  </svg>
-                                </Tippy>
-                              </div>
-                            </a>
-                          </Link>
-                        </figure>
-                        <div className="flex flex-col justify-center">
-                          <span className="text-jacarta-400 block text-sm dark:text-white">
-                            Owned by
-                          </span>
-                          <Link href="/user/avatar_6">
-                            <a className="text-accent block">
-                              <span className="text-sm font-bold">
-                                {ownerName}
-                              </span>
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
                     </div>
 
                     {/* <!-- Bid --> */}
                     <div className="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 rounded-2lg border bg-white p-8">
                       <div className="mb-8 sm:flex sm:flex-wrap">
-                        {/* <!-- Highest bid --> */}
-                        <div className="sm:w-1/2 sm:pr-4 lg:pr-8">
-                          <div className="block overflow-hidden text-ellipsis whitespace-nowrap">
-                            <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
-                              Highest bid by{" "}
-                            </span>
-                            <Link href="/user/avatar_6">
-                              <a className="text-accent text-sm font-bold">
-                                0x695d2ef170ce69e794707eeef9497af2de25df82
-                              </a>
-                            </Link>
-                          </div>
-                          <div className="mt-3 flex">
-                            <figure className="mr-4 shrink-0">
-                              <Link href="#">
-                                <a className="relative block">
-                                  <img
-                                    src="/images/avatars/avatar_4.jpg"
-                                    alt="avatar"
-                                    className="rounded-2lg h-12 w-12"
-                                    loading="lazy"
-                                  />
-                                </a>
-                              </Link>
-                            </figure>
-                            <div>
-                              <div className="flex items-center whitespace-nowrap">
-                                <Tippy content={<span>APT</span>}>
-                                  <span className="-ml-1">
-                                    <svg className="icon mr-1 h-4 w-4">
-                                      <use xlinkHref="/icons.svg#icon-APT"></use>
-                                    </svg>
-                                  </span>
-                                </Tippy>
-                                <span className="text-green text-lg font-medium leading-tight tracking-tight">
-                                  {price} APT
-                                </span>
-                              </div>
-                              <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
-                                ~10,864.10
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-
                         {/* <!-- Countdown --> */}
-                        <div className="dark:border-jacarta-600 sm:border-jacarta-100 mt-4 sm:mt-0 sm:w-1/2 sm:border-l sm:pl-4 lg:pl-8">
+                        <div className=" mt-4 sm:mt-0 sm:w-1/2 sm:pl-4 lg:pl-4">
                           <span className="js-countdown-ends-label text-jacarta-400 dark:text-jacarta-300 text-sm">
-                            Auction ends in
+                            Ending in:
                           </span>
                           <Items_Countdown_timer time={+auction_timer} />
                         </div>

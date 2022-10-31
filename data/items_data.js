@@ -249,8 +249,8 @@ const items_data = [
   },
   {
     id: "item_20",
-    image: "/images/products/item_20_square.jpg",
-    creatorImage: "/images/avatars/avatar_7.jpg",
+    image: "/images/products/poo-doge.png",
+    creatorImage: "/images/avatars/owner_5.png",
     ownerImage: "/images/avatars/avatar_1.jpg",
     price: "4.7 APT",
     likes: "260",
@@ -258,7 +258,7 @@ const items_data = [
     ownerName: "@051_Hart",
     auction_timer: "636234213",
     text: "Neque aut veniam consectetur magnam libero, natus eius numquam reprehenderit hic at, excepturi repudiandae magni optio odio doloribus? Facilisi lobortisal morbi fringilla urna amet sed ipsum.",
-    title: "TSARÉVNA",
+    title: "POO DOGE",
   },
   {
     id: "item_21",

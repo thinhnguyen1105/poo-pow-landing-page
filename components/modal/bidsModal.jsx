@@ -18,7 +18,7 @@ const BidsModal = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="placeBidLabel">
-                Place a bid
+                Mint NFT
               </h5>
               <button
                 type="button"
@@ -98,7 +98,7 @@ const BidsModal = () => {
                   type="button"
                   className="bg-accent shadow-accent-volume hover:bg-accent-dark rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
                 >
-                  Place Bid
+                  Mint
                 </button>
               </div>
             </div>
