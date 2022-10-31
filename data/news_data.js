@@ -6,6 +6,7 @@ const news_data = [
 		image: '/images/blog/post_1.jpg',
 		date: '5 Feb',
 		time: '3 min read',
+		link: 'https://learn.bybit.com/altcoins/what-is-aptos/'
 	},
 	{
 		id: '0Mint your own Tezos collections',
@@ -41,6 +42,7 @@ const news_data = [
 		image: '/images/blog/post_5.jpg',
 		date: '15 Jan',
 		time: '3 min read',
+		link: 'https://learn.bybit.com/altcoins/what-is-aptos/'
 	},
 	{
 		id: "4Inflation is up, it matters: High prices plague Biden's",
@@ -49,54 +51,7 @@ const news_data = [
 		image: '/images/blog/post_6.jpg',
 		date: '23 Dec',
 		time: '3 min read',
-	},
-	{
-		id: '6Mint your own Tezos collections',
-		text: 'Since we launched Tezos at the end of 2021, many awesome creators...',
-		title: 'Mint your own Tezos collections',
-		image: '/images/blog/post_1.jpg',
-		date: '5 Feb',
-		time: '3 min read',
-	},
-	{
-		id: '7Mint your own Tezos collections',
-		text: 'Since we launched Tezos at the end of 2021, many awesome creators...',
-		title: 'Mint your own Tezos collections',
-		image: '/images/blog/post_2.jpg',
-		date: '5 Feb',
-		time: '3 min read',
-	},
-	{
-		id: '8List your collection for secondary sales',
-		text: 'Since we launched Tezos at the end of 2021, many awesome creators...',
-		title: 'List your collection for secondary sales',
-		image: '/images/blog/post_3.jpg',
-		date: '22 Feb',
-		time: '3 min read',
-	},
-	{
-		id: '9The biggest moves in NFTs, Bitcoin, crypto rules',
-		text: 'Since we launched Tezos at the end of 2021, many awesome creators...',
-		title: 'The biggest moves in NFTs, Bitcoin, crypto rules',
-		image: '/images/blog/post_4.jpg',
-		date: '18 Jan',
-		time: '3 min read',
-	},
-	{
-		id: "10Incredible Amount of Developer Energy' in Web3",
-		text: 'Since we launched Tezos at the end of 2021, many awesome creators...',
-		title: "Incredible Amount of Developer Energy' in Web3",
-		image: '/images/blog/post_5.jpg',
-		date: '15 Jan',
-		time: '3 min read',
-	},
-	{
-		id: "11Inflation is up, it matters: High prices plague Biden's",
-		text: 'Since we launched Tezos at the end of 2021, many awesome creators...',
-		title: "Inflation is up, it matters: High prices plague Biden's",
-		image: '/images/blog/post_6.jpg',
-		date: '23 Dec',
-		time: '3 min read',
+		link: 'https://learn.bybit.com/altcoins/what-is-aptos/'
 	},
 ];
 
