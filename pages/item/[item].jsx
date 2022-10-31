@@ -141,15 +141,15 @@ const Item = () => {
 
                     <div className="mb-8 flex items-center space-x-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <Tippy content={<span>ETH</span>}>
+                        <Tippy content={<span>APT</span>}>
                           <span className="-ml-1">
                             <svg className="icon mr-1 h-4 w-4">
-                              <use xlinkHref="/icons.svg#icon-ETH"></use>
+                              <use xlinkHref="/icons.svg#icon-APT"></use>
                             </svg>
                           </span>
                         </Tippy>
                         <span className="text-green text-sm font-medium tracking-tight">
-                          {price} ETH
+                          {price} APT
                         </span>
                       </div>
                       <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
@@ -273,15 +273,15 @@ const Item = () => {
                             </figure>
                             <div>
                               <div className="flex items-center whitespace-nowrap">
-                                <Tippy content={<span>ETH</span>}>
+                                <Tippy content={<span>APT</span>}>
                                   <span className="-ml-1">
                                     <svg className="icon mr-1 h-4 w-4">
-                                      <use xlinkHref="/icons.svg#icon-ETH"></use>
+                                      <use xlinkHref="/icons.svg#icon-APT"></use>
                                     </svg>
                                   </span>
                                 </Tippy>
                                 <span className="text-green text-lg font-medium leading-tight tracking-tight">
-                                  {price} ETH
+                                  {price} APT
                                 </span>
                               </div>
                               <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
