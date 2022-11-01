@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { items_data } from "../../data/items_data";
 import Auctions_dropdown from "../../components/dropdown/Auctions_dropdown";
@@ -12,13 +12,118 @@ import Likes from "../../components/likes";
 import Meta from "../../components/Meta";
 import { useDispatch } from "react-redux";
 import { bidsModalShow } from "../../redux/counterSlice";
-
+import { toast } from 'react-toastify';
+import { useWallet } from '@manahippo/aptos-wallet-adapter';
+import helper from "../../config/helper"
+import { collectionName, NFT_CONTRACT, contract } from "../../config/constants"
 const Item = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const pid = router.query.item;
-
+  const autoRefeshTimer = 10000
+  const wallet = useWallet();
   const [imageModal, setImageModal] = useState(false);
+  const [isMintSuccess, setMintSuccess] = useState(false)
+  const [isFetchignCmData, setIsFetchignCmData] = useState(false)
+  const [cmData, setCmData] = useState({ data: {}, fetch: fetchData })
+  const [timeLeftToMint, setTimeLeftToMint] = useState({ presale: "", public: "", timeout: null })
+  const [mintInfo, setMintInfo] = useState({ numToMint: 1, minting: false, success: false, mintedNfts: [] })
+  const [canMint, setCanMint] = useState(false)
+  const mint = async () => {
+    if (wallet.account?.address?.toString() === undefined || mintInfo.minting) return;
+
+    console.log(wallet.account?.address?.toString());
+    setMintInfo({ ...mintInfo, minting: true })
+    // Generate a transaction
+    const payload = {
+      type: "entry_function_payload",
+      function: `${NFT_CONTRACT}::candy_machine_v2::mint_tokens`,
+      type_arguments: [],
+      arguments: [
+        contract,
+        collectionName,
+        mintInfo.numToMint,
+      ]
+    };
+
+    let txInfo;
+    try {
+      const txHash = await wallet.signAndSubmitTransaction(payload);
+      console.log(txHash);
+      txInfo = await helper.aptosWalletClient().waitForTransactionWithResult(txHash.hash)
+    } catch (err) {
+      txInfo = {
+        success: false,
+        vm_status: err.message,
+      }
+    }
+    handleMintTxResult(txInfo)
+    if (txInfo.success) setCmData({ ...cmData, data: { ...cmData.data, numMintedTokens: (parseInt(cmData.data.numMintedTokens) + parseInt(mintInfo.numToMint)).toString() } })
+  }
+
+  async function handleMintTxResult(txInfo) {
+    console.log(txInfo);
+    const mintSuccess = txInfo.success;
+    console.log(mintSuccess ? "Mint success!" : `Mint failure, an error occured.`)
+
+    let mintedNfts = []
+    if (!mintSuccess) {
+      /// Handled error messages
+      const handledErrorMessages = new Map([
+        ["Failed to sign transaction", "An error occured while signing."],
+        ["Move abort in 0x1::coin: EINSUFFICIENT_BALANCE(0x10006): Not enough coins to complete transaction", "Insufficient funds to mint."],
+      ]);
+
+      const txStatusError = txInfo.vm_status;
+      console.error(`Mint not successful: ${txStatusError}`);
+      let errorMessage = handledErrorMessages.get(txStatusError);
+      errorMessage = errorMessage === undefined ? "Unkown error occured. Try again." : errorMessage;
+
+      toast.error(errorMessage);
+    } else {
+      mintedNfts = await helper.getMintedNfts(cmData.data.tokenDataHandle, cmData.data.resourceAccount, collectionName, txInfo)
+      toast.success("Minting success!")
+      setMintSuccess(true)
+    }
+
+    console.log(JSON.stringify({ ...mintInfo, minting: false, success: mintSuccess, mintedNfts }))
+    setMintInfo({ ...mintInfo, minting: false, success: mintSuccess, mintedNfts })
+  }
+
+  function verifyTimeLeftToMint() {
+    const mintTimersTimeout = setTimeout(verifyTimeLeftToMint, 1000)
+    if (cmData.data.presaleMintTime === undefined || cmData.data.publicMintTime === undefined) return
+
+    const currentTime = Math.round(new Date().getTime() / 1000);
+    setTimeLeftToMint({ timeout: mintTimersTimeout, presale: helper.getTimeDifference(currentTime, cmData.data.presaleMintTime), public: helper.getTimeDifference(currentTime, cmData.data.publicMintTime) })
+  }
+
+  async function fetchData(indicateIsFetching = false) {
+    const resourceAccount = await helper.getResourceAccount();
+    if (resourceAccount === null) {
+      setCmData({ ...cmData, data: {} })
+      setIsFetchignCmData(false)
+      return
+    }
+    const collectionInfo = await helper.getCollectionInfo(resourceAccount);
+    const configData = await helper.getConfigData(collectionInfo.ConfigHandle);
+    setCmData({ ...cmData, data: { resourceAccount, ...collectionInfo, ...configData } })
+    setIsFetchignCmData(false)
+  }
+
+  useEffect(() => {
+    fetchData(true)
+    setInterval(fetchData, autoRefeshTimer)
+  }, [])
+
+  useEffect(() => {
+    clearTimeout(timeLeftToMint.timeout)
+    verifyTimeLeftToMint()
+  }, [cmData])
+
+  useEffect(() => {
+    setCanMint(wallet.connected && cmData.data.isPublic && parseInt(cmData.data.numUploadedTokens) > parseInt(cmData.data.numMintedTokens) && timeLeftToMint.presale === "LIVE")
+  }, [wallet, cmData, timeLeftToMint])
 
   return (
     <>
@@ -98,6 +203,52 @@ const Item = () => {
                       </button>
                     </div>
                     {/* <!-- end modal --> */}
+
+                    {/* <!-- Modal Mint --> */}
+                    <div
+                      className={
+                        isMintSuccess ? "modal fade show block" : "modal fade"
+                      }
+                    >
+                      <div className="modal-dialog max-w-2xl">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h5 className="modal-title" id="placeBidLabel">
+                              Your NFT
+                            </h5>
+                            <button
+                              type="button"
+                              className="btn-close"
+                              onClick={() => setMintSuccess(false)}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                className="fill-jacarta-700 h-6 w-6 dark:fill-white"
+                              >
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"></path>
+                              </svg>
+                            </button>
+                          </div>
+                          <div className="modal-body p-6">
+                            {mintInfo.mintedNfts.map(mintedNft => <div key={mintedNft.name} className="relative col-span-6 xl:col-span-6 xl:col-start-7">
+                              <img
+                                src={mintedNft.imageUri === null ? "" : mintedNft.imageUri}
+                                className="h-full rounded-2xl"
+                              />
+                              <h1 className="font-display text-jacarta-700 text-4xl font-semibold dark:text-white mt-2">
+                                {mintedNft.name}
+                              </h1>
+                            </div>)}
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    {/* <!-- end modal mint --> */}
                   </figure>
 
                   {/* <!-- Details --> */}
@@ -108,7 +259,7 @@ const Item = () => {
                       <div className="flex items-center">
                         <Link href="#">
                           <a className="text-accent mr-2 text-sm font-bold">
-                            CryptoGuysNFT
+                            {collectionName}
                           </a>
                         </Link>
                         <span
@@ -136,16 +287,16 @@ const Item = () => {
                     </div>
                     <div className="flex items-center mb-4">
                       <h1 className="font-display text-jacarta-700 text-4xl font-semibold dark:text-white">
-                        {title}{" "}
+                        {collectionName}{" "}
                       </h1>
-                      <img
+                      {/* <img
                         className="mx-2"
                         src="/images/chains/logo-apt.png"
                         width={30}
                       ></img>
                       <h1 className="text-green font-display text-4xl font-semibold dark:text-white">
                         1 APT
-                      </h1>
+                      </h1> */}
                     </div>
 
                     <div className="mb-8 flex items-center space-x-4 whitespace-nowrap">
@@ -154,11 +305,11 @@ const Item = () => {
                       </span>
                       <div className="flex items-center">
                         <span className="text-green text-sm font-medium tracking-tight">
-                          {price}
+                          {cmData.data.mintFee} APT
                         </span>
                       </div>
                       <span className="dark:text-jacarta-300 text-jacarta-400 text-sm">
-                        1/1 available
+                        {cmData.data.numMintedTokens} / {cmData.data.numUploadedTokens} minted
                       </span>
                     </div>
 
@@ -212,16 +363,22 @@ const Item = () => {
                         {/* <!-- Countdown --> */}
                         <div className=" mt-4 sm:mt-0 sm:w-1/2 sm:pl-4 lg:pl-4">
                           <span className="js-countdown-ends-label text-jacarta-400 dark:text-jacarta-300 text-sm">
-                            Ending in:
+                            Presale:
                           </span>
-                          <Items_Countdown_timer time={+auction_timer} />
+                          <h6>{timeLeftToMint.presale === "LIVE" ? "LIVE" : timeLeftToMint.presale.days + " days : " + timeLeftToMint.presale.hours + " hours : " + timeLeftToMint.presale.minutes + " minutes : " + timeLeftToMint.presale.seconds + " seconds"}</h6>
+                          <span className="js-countdown-ends-label text-jacarta-400 dark:text-jacarta-300 text-sm">Public In:</span>
+                          <h6>{timeLeftToMint.public === "LIVE" ? "LIVE" : timeLeftToMint.public.days + " days : " + timeLeftToMint.public.hours + " hours : " + timeLeftToMint.public.minutes + " minutes : " + timeLeftToMint.public.seconds + " seconds"}</h6>
+                          {/*
+                          <Items_Countdown_timer time={+auction_timer} /> 
+                          */}
                         </div>
                       </div>
 
                       <Link href="#">
                         <button
                           className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
-                          onClick={() => dispatch(bidsModalShow())}
+                          // onClick={() => dispatch(bidsModalShow())}
+                          onClick={() => mint()}
                         >
                           Mint NFT
                         </button>

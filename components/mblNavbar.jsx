@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import UserId from "./userId";
 import { useWallet } from "@manahippo/aptos-wallet-adapter";
 import ConnectButton from "./connect/connectButton";
-
+import helper from "../config/helper"
 const MblNavbar = ({ theme }) => {
   const { mblMenu } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const MblNavbar = ({ theme }) => {
   const router = useRouter();
   const [navItemValue, setNavItemValue] = useState(1);
   const [navText, setnavText] = useState("");
+  const [balance, setBalance] = useState(0);
   const wallet = useWallet();
 
   const handleItemDropdown = (e) => {
@@ -33,6 +34,13 @@ const MblNavbar = ({ theme }) => {
   useEffect(() => {
     if (!wallet.autoConnect && wallet.wallet?.adapter) {
       wallet.connect();
+    }
+    if (wallet.connected) {
+      const loadData = async () => {
+        let balance = await helper.getBalance(wallet.account.address)
+        setBalance(balance)
+      };
+      loadData()
     }
   }, [wallet]);
 
@@ -226,7 +234,7 @@ const MblNavbar = ({ theme }) => {
                     ? "font-display  hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
                     : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
-                // onClick={(e) => handleItemDropdown(e)}
+              // onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "pages" ? "text-accent" : ""}>
                   About us
@@ -282,7 +290,7 @@ const MblNavbar = ({ theme }) => {
                     ? "dropdown-toggle font-display hover:text-accent focus:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
                     : "dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
-                // onClick={(e) => handleItemDropdown(e)}
+              // onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "collection" ? "text-accent" : ""}>
                   Features
@@ -311,7 +319,7 @@ const MblNavbar = ({ theme }) => {
                     ? "font-display focus:text-accent hover:text-accent flex items-center justify-between py-3.5 text-base lg:text-white text-jacarta-700 dark:text-white lg:px-5 w-full"
                     : "text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5 w-full"
                 }
-                // onClick={(e) => handleItemDropdown(e)}
+              // onClick={(e) => handleItemDropdown(e)}
               >
                 <span className={navText === "resources" ? "text-accent" : ""}>
                   Roadmap
@@ -447,7 +455,7 @@ const MblNavbar = ({ theme }) => {
                     Balance
                   </span>
                   <div className="flex items-center">
-                    <span className="text-orange text-lg font-bold">0 APT</span>
+                    <span className="text-orange text-lg font-bold">{balance} APT</span>
                   </div>
                 </div>
                 <div
